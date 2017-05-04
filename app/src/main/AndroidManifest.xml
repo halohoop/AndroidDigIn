@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MagnifierActivity">
-        </activity>
+        <activity android:name=".MagnifierActivity"></activity>
+        <activity android:name=".ColorMatrixActivity"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,16 @@
 * Paint.setShader();
 * onDraw中循环调用postInvalidateDelayed；
 
+## 3.理解ColorMatrix
+
+![demo pic](./ColorMatrix.png)
+
+* ColorMatrix的使用；
+* 色调setRotate
+* 饱和度setSaturation
+* 亮度setScale
+* 集中特殊的处理（如：灰度、反相、怀旧、去色、高饱和）
+
 ## License
 
     Copyright 2017, Halohoop

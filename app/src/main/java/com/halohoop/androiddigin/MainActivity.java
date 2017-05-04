@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lv;
-    private String[] items = {"放大镜MagnifierView"};
+    private String[] items = {"放大镜MagnifierView","理解ColorMatrix"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch (position) {
             case 0://放大镜
                 Intent intent = new Intent(this,MagnifierActivity.class);
+                startAct(intent);
+                break;
+            case 1://ColorMatrix
+                intent = new Intent(this,ColorMatrixActivity.class);
                 startAct(intent);
                 break;
         }
