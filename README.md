@@ -10,6 +10,12 @@
 ## 2.[歌词走马灯](https://github.com/halohoop/PartsShowTextView)
 ![demo pic](./device-2017-05-04-120156.gif)
 
+* LinearGradient的使用;
+* Matrix的使用(setTranslate);
+* Paint.measureText();
+* Paint.setShader();
+* onDraw中循环调用postInvalidateDelayed；
+
 ## License
 
     Copyright 2017, Halohoop
