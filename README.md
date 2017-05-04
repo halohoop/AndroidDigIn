@@ -1,7 +1,12 @@
 # Halohoop Android Skill Dig In
-# 1.Magifier，放大镜效果
----
+## 1.Magifier，放大镜效果
 ![demo pic](./device-2017-05-04-181727.gif)
+
+* Matrix的使用；
+* 求大小两圆切点，数学几何；
+* ShapeDrawable的使用；
+* BitmapShader的使用；
+ 
 ---
 
 ## License
