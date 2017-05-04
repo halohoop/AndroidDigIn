@@ -6,8 +6,9 @@
 * 求大小两圆切点，数学几何；
 * ShapeDrawable的使用；
 * BitmapShader的使用；
- 
----
+
+## 2.[歌词走马灯](https://github.com/halohoop/PartsShowTextView)
+![demo pic](./device-2017-05-04-120156.gif)
 
 ## License
 
