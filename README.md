@@ -26,6 +26,19 @@
 * 亮度setScale
 * 集中特殊的处理（如：灰度、反相、怀旧、去色、高饱和）
 
+## 4.Reveal效果
+
+![demo pic](./device-2017-05-06-002903.gif)
+
+* 代码自定义drawable，内存画布;
+* Gravity.apply的使用，从Rect扣出另一个Rect;
+* canvas.clipRect裁剪画布，限定绘制区域；
+* canvas.save();和canvas.restore();的使用;
+* Drawable的setLevel以及onLevelChange的使用;
+* Drawble重绘调用invalidateSelf;
+
+## 5.To be continued
+
 ## License
 
     Copyright 2017, Halohoop
