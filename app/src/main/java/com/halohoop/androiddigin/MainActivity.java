@@ -13,7 +13,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lv;
-    private String[] items = {"放大镜MagnifierView","理解ColorMatrix","Reveal效果"};
+    private String[] items = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
+            "RadialGradient水波纹"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +30,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0://放大镜
-                Intent intent = new Intent(this,MagnifierActivity.class);
+                Intent intent = new Intent(this, MagnifierActivity.class);
                 startAct(intent);
                 break;
             case 1://ColorMatrix
-                intent = new Intent(this,ColorMatrixActivity.class);
+                intent = new Intent(this, ColorMatrixActivity.class);
                 startAct(intent);
                 break;
             case 2://Reveal效果
-                intent = new Intent(this,RevealActivity.class);
+                intent = new Intent(this, RevealActivity.class);
+                startAct(intent);
+                break;
+            case 3://RadialGradient水波纹
+                intent = new Intent(this, RadialGradientActivity.class);
                 startAct(intent);
                 break;
         }

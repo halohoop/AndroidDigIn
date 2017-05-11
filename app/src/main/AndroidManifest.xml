@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".MagnifierActivity" />
         <activity android:name=".ColorMatrixActivity" />
-        <activity android:name=".RevealActivity"></activity>
+        <activity android:name=".RevealActivity" />
+        <activity android:name=".RadialGradientActivity"></activity>
     </application>
 
 </manifest>

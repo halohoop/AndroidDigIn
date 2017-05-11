@@ -37,7 +37,16 @@
 * Drawable的setLevel以及onLevelChange的使用;
 * Drawble重绘调用invalidateSelf;
 
-## 5.To be continued
+## 5.RadialGradient实现水波纹效果
+
+![demo pic](./device-2017-05-12-010202.gif)
+
+* RadialGradient的使用，也是shader的一种（子类）;
+* BitmapShader的使用;
+* ComposeShader的使用;
+* ComposeShader结合PorterDuff.Mode的使用;
+
+
 
 ## License
 
