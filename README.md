@@ -46,6 +46,15 @@
 * ComposeShader的使用;
 * ComposeShader结合PorterDuff.Mode的使用;
 
+## 6.SweepGradient制作Radar雷达效果效果
+
+![Demo pic](./device-2017-05-13-092925.gif)
+
+* SweepGradient的使用，也是shader的一种（子类）;
+* 果冻效果;
+* onDraw中调用invalidate的方式做循环;
+
+## 7.To be continued...
 
 
 ## License
