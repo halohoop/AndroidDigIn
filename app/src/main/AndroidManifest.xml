@@ -20,7 +20,8 @@
         <activity android:name=".ColorMatrixActivity" />
         <activity android:name=".RevealActivity" />
         <activity android:name=".RadialGradientActivity" />
-        <activity android:name=".SweepGradientActivity"></activity>
+        <activity android:name=".SweepGradientActivity" />
+        <activity android:name=".ScratchActivity"></activity>
     </application>
 
 </manifest>

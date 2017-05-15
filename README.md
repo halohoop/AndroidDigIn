@@ -54,7 +54,15 @@
 * 果冻效果;
 * onDraw中调用invalidate的方式做循环;
 
-## 7.To be continued...
+## 7.刮刮纸ScratchView
+
+![Demo pic](./device-2017-05-15-182750.gif)
+
+* Xfermode的使用;
+* 让笔触更加平滑的算法quadTo;
+* 自创的加解密一个文件的方法，把文件放到raw中，然后用流解析;
+
+## 8.To be continued...
 
 
 ## License

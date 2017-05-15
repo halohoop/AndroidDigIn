@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ListView lv;
     private String[] items = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
-            "RadialGradient水波纹","SweepGradient制作Radar雷达效果效果"
+            "RadialGradient水波纹","SweepGradient制作Radar雷达效果效果","刮刮纸Xfermode"
     };
 
     @Override
@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 4://SweepGradient制作Radar雷达效果效果
                 intent = new Intent(this, SweepGradientActivity.class);
+                startAct(intent);
+                break;
+            case 5://刮刮纸Xfermode
+                intent = new Intent(this, ScratchActivity.class);
                 startAct(intent);
                 break;
         }
