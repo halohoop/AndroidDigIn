@@ -59,6 +59,8 @@
 ![Demo pic](./device-2017-05-15-182750.gif)
 
 * Xfermode的使用;
+* Xfermode生效可能需要关闭硬件加速setLayerType(LAYER_TYPE_SOFTWARE, null);
+* Xfermode生效可能需要Canvas.saveLayer;
 * 让笔触更加平滑的算法quadTo;
 * 自创的加解密一个文件的方法，把文件放到raw中，然后用流解析;
 
