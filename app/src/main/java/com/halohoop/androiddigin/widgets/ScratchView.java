@@ -98,14 +98,14 @@ public class ScratchView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (rect.contains((int) event.getX(), (int) event.getY())) {
+            showToast(getContext(),"要看此区域请付费！");
+        }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mScratchPath.moveTo(event.getX(), event.getY());
                 mPreX = event.getX();
                 mPreY = event.getY();
-                if (rect.contains((int) mPreX, (int) mPreY)) {
-                    showToast(getContext(),"要看此区域请付费！");
-                }
                 return true;
             case MotionEvent.ACTION_MOVE:
                 float endX = (mPreX + event.getX()) / 2;
