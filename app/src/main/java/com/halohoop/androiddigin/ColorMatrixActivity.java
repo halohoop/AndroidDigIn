@@ -21,11 +21,23 @@ public class ColorMatrixActivity extends AppCompatActivity implements View.OnCli
             0.33F, 0.59F, 0.11F, 0, 0,//B
             0, 0, 0, 1, 0             //A
     };
+    private float[] GREY_MODE2 = {
+            0.213F, 0.715F, 0.072F, 0, 0,//R
+            0.213F, 0.715F, 0.072F, 0, 0,//G
+            0.213F, 0.715F, 0.072F, 0, 0,//B
+            0, 0, 0, 1, 0             //A
+    };
     private float[] INVERT_MODE = {
             -1, 0, 0, 1, 0,//R
             0, -1, 0, 1, 0,//G
             0, 0, -1, 1, 0,//B
             0, 0, 0, 1, 0  //A
+    };
+    private float[] INVERT_MODE2 = {
+            -1, 0, 0, 0, 255,//R
+            0, -1, 0, 0, 255,//G
+            0, 0, -1, 0, 255,//B
+            0, 0, 0, 1, 255  //A
     };
     private float[] MEMO_MODE = {
             0.393f, 0.769f, 0.189f, 0, 0,
@@ -55,7 +67,9 @@ public class ColorMatrixActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.btn_change).setOnClickListener(this);
 
         findViewById(R.id.btn_gray).setOnClickListener(this);
+        findViewById(R.id.btn_gray2).setOnClickListener(this);
         findViewById(R.id.btn_invert).setOnClickListener(this);
+        findViewById(R.id.btn_invert2).setOnClickListener(this);
         findViewById(R.id.btn_memo).setOnClickListener(this);
         findViewById(R.id.btn_desaturate).setOnClickListener(this);
         findViewById(R.id.btn_high_sat).setOnClickListener(this);
@@ -79,9 +93,17 @@ public class ColorMatrixActivity extends AppCompatActivity implements View.OnCli
                 cmv.change(GREY_MODE);
                 setColors(GREY_MODE);
                 break;
+            case R.id.btn_gray2:
+                cmv.change(GREY_MODE2);
+                setColors(GREY_MODE2);
+                break;
             case R.id.btn_invert:
                 cmv.change(INVERT_MODE);
                 setColors(INVERT_MODE);
+                break;
+            case R.id.btn_invert2:
+                cmv.change(INVERT_MODE2);
+                setColors(INVERT_MODE2);
                 break;
             case R.id.btn_memo:
                 cmv.change(MEMO_MODE);

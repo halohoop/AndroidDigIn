@@ -54,6 +54,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="灰度" />
+        <Button
+            android:id="@+id/btn_gray2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="灰度2" />
 
         <Button
             android:id="@+id/btn_invert"
@@ -61,6 +67,13 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="反相" />
+
+        <Button
+            android:id="@+id/btn_invert2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="反相2" />
         <Button
             android:id="@+id/btn_memo"
             android:layout_width="0dp"
