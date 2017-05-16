@@ -64,7 +64,15 @@
 * 让笔触更加平滑的算法quadTo;
 * 自创的加解密一个文件的方法，把文件放到raw中，然后用流解析;
 
-## 8.To be continued...
+## 8.menu怎么用
+
+* 重写方法onCreateOptionsMenu;
+* R.menu.main_menu  xml中定义点击事件;
+
+## 9.FloatingActionButton和Snackbar怎么用
+## 10.单例吐司Toast，不需要等待上一个消失
+
+## 11.To be continued...
 
 
 ## License

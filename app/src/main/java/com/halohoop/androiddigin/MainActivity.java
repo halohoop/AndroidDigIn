@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ListView lv;
     private String[] items = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
-            "RadialGradient水波纹","SweepGradient制作Radar雷达效果效果","刮刮纸Xfermode"
+            "RadialGradient水波纹","SweepGradient制作Radar雷达效果效果","刮刮纸Xfermode",
+            "menu怎么用","FloatingActionButton和Snackbar怎么用","单例吐司Toast，不需要等待上一个消失",
     };
 
     @Override
@@ -51,6 +52,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 5://刮刮纸Xfermode
                 intent = new Intent(this, ScratchActivity.class);
+                startAct(intent);
+                break;
+            case 6://menu怎么用
+                intent = new Intent(this, MenuUsageActivity.class);
+                startAct(intent);
+                break;
+            case 7://FloatingActionButton和Snackbar怎么用
+                intent = new Intent(this, MenuUsageActivity.class);
+                startAct(intent);
+                break;
+            case 8://"单例吐司Toast，不需要等待上一个消失"
+                intent = new Intent(this, MenuUsageActivity.class);
                 startAct(intent);
                 break;
         }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidDigIn</string>
+    <string name="title_activity_menu_usage">MenuUsageActivity</string>
 </resources>

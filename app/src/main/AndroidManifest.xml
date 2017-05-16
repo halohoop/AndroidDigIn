@@ -21,7 +21,11 @@
         <activity android:name=".RevealActivity" />
         <activity android:name=".RadialGradientActivity" />
         <activity android:name=".SweepGradientActivity" />
-        <activity android:name=".ScratchActivity"></activity>
+        <activity android:name=".ScratchActivity" />
+        <activity
+            android:name=".MenuUsageActivity"
+            android:label="@string/title_activity_menu_usage"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

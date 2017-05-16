@@ -1,5 +1,6 @@
 package com.halohoop.androiddigin.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -10,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by Pooholah on 2017/5/5.
@@ -62,5 +64,22 @@ public class Utils {
     public static Bitmap handleBitmap(Resources res, Bitmap bitmap) {
         return getBitmap(bitmap);
     }
+
+
+    /**
+     * 单例吐司---start
+     */
+    private static Toast toast;
+
+    public static void showToast(Context context, String string) {
+        if(toast == null){
+            toast = Toast.makeText(context, "", Toast.LENGTH_SHORT);
+        }
+        toast.setText(string);
+        toast.show();
+    }
+    /**
+     * 单例吐司---end
+     */
 
 }
