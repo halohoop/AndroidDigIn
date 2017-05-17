@@ -17,14 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MagnifierActivity" />
-        <activity android:name=".ColorMatrixActivity" />
-        <activity android:name=".RevealActivity" />
-        <activity android:name=".RadialGradientActivity" />
-        <activity android:name=".SweepGradientActivity" />
-        <activity android:name=".ScratchActivity" />
+        <activity android:name=".showacts.ColorMatrixActivity" />
+        <activity android:name=".showacts.RevealActivity" />
+        <activity android:name=".showacts.RadialGradientActivity" />
+        <activity android:name=".showacts.SweepGradientActivity" />
         <activity
-            android:name=".MenuUsageActivity"
+            android:name=".showacts.MenuUsageActivity"
             android:label="@string/title_activity_menu_usage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -1,11 +1,18 @@
 package com.halohoop.androiddigin;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.halohoop.androiddigin.categoris.Contents;
 import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
+import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
+import com.halohoop.androiddigin.showacts.MenuUsageActivity;
+import com.halohoop.androiddigin.showacts.RadialGradientActivity;
+import com.halohoop.androiddigin.showacts.RevealActivity;
+import com.halohoop.androiddigin.showacts.SweepGradientActivity;
 import com.halohoop.androiddigin.utils.Utils;
 
 /**
@@ -13,6 +20,27 @@ import com.halohoop.androiddigin.utils.Utils;
  */
 
 public abstract class BaseAct extends AppCompatActivity implements ListDataFragment.OnListFragmentInteractionListener {
+
+    protected final static String IS_BEENT_HROUGH_ONSAVEINSTANCESTATE
+            = "is_beent_hrough_onSaveInstanceState";
+    protected boolean mIsBeenThroughOnSaveInstanceState = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mIsBeenThroughOnSaveInstanceState = savedInstanceState != null ? savedInstanceState.getBoolean(IS_BEENT_HROUGH_ONSAVEINSTANCESTATE) : false;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(IS_BEENT_HROUGH_ONSAVEINSTANCESTATE, mIsBeenThroughOnSaveInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
 
     protected void startAct(Intent intent) {
         startActivity(intent);

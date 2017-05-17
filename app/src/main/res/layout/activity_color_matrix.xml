@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.halohoop.androiddigin.ColorMatrixActivity">
+    tools:context="com.halohoop.androiddigin.showacts.ColorMatrixActivity">
 
     <com.halohoop.androiddigin.widgets.ColorMatrixView
         android:id="@+id/cmv"

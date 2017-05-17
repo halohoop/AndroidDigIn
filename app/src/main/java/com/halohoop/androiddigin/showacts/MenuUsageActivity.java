@@ -1,4 +1,4 @@
-package com.halohoop.androiddigin;
+package com.halohoop.androiddigin.showacts;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.halohoop.androiddigin.R;
 import com.halohoop.androiddigin.utils.Utils;
 
 public class MenuUsageActivity extends AppCompatActivity {

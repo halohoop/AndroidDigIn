@@ -1,9 +1,10 @@
-package com.halohoop.androiddigin;
+package com.halohoop.androiddigin.showacts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.halohoop.androiddigin.R;
 import com.halohoop.androiddigin.widgets.SweepGradientRadarView;
 
 import java.util.Random;

@@ -1,6 +1,7 @@
 package com.halohoop.androiddigin.frags;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -36,11 +37,13 @@ public class ListDataFragment extends ListFragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ListDataFragment() {
+        Utils.log("ListDataFragment无参数构造");
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static ListDataFragment newInstance(int category) {
+        Utils.log("ListDataFragment-newInstance");
         ListDataFragment fragment = new ListDataFragment();
         Bundle args = new Bundle();
         args.putInt(ITEM_DATAS, category);
@@ -86,7 +89,13 @@ public class ListDataFragment extends ListFragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-        Utils.log("onDetach");
+        Utils.log("ListDataFragment-onDetach");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Utils.log("ListDataFragment onConfigurationChanged");
     }
 
     /**

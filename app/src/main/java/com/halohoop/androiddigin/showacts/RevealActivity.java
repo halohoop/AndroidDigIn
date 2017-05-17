@@ -1,4 +1,4 @@
-package com.halohoop.androiddigin;
+package com.halohoop.androiddigin.showacts;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.halohoop.androiddigin.R;
 import com.halohoop.androiddigin.utils.Utils;
 import com.halohoop.androiddigin.widgets.RevealDrawable;
 

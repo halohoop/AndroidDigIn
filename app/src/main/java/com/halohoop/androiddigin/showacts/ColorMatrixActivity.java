@@ -1,4 +1,4 @@
-package com.halohoop.androiddigin;
+package com.halohoop.androiddigin.showacts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 
+import com.halohoop.androiddigin.R;
 import com.halohoop.androiddigin.widgets.ColorMatrixView;
 
 public class ColorMatrixActivity extends AppCompatActivity implements View.OnClickListener {
