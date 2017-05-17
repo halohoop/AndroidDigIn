@@ -15,6 +15,11 @@
         android:padding="10dp"
         android:text="right" />
 
+    <View
+        android:background="#8e8e8e"
+        android:layout_width="1px"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/item_tv_right"
         android:layout_width="0dp"

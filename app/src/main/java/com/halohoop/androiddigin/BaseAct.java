@@ -1,12 +1,15 @@
 package com.halohoop.androiddigin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.halohoop.androiddigin.categoris.Contents;
 import com.halohoop.androiddigin.frags.ListDataFragment;
+import com.halohoop.androiddigin.frags.MyDialogFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.MenuUsageActivity;
@@ -46,7 +49,7 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
         startActivity(intent);
     }
 
-    protected void showFragment(int resId) {
+    final protected void showFragment(int resId) {
         ShowFragment showFragment = ShowFragment.newInstance(resId);
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
@@ -54,9 +57,54 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 .commit();
     }
 
+    final protected void showDialogFragment(MyDialogFragment.ModeData modeData,
+                                            MyDialogFragment.OnShowEntityCreateListener onShowEntityCreateListener,
+                                            MyDialogFragment.OnDialogClickListener onDialogClickListener) {
+        MyDialogFragment myDialogFragment = MyDialogFragment.newInstance(modeData);
+        myDialogFragment.setOnShowEntityCreateListener(onShowEntityCreateListener);
+        myDialogFragment.setOnDialogClickListener(onDialogClickListener);
+        myDialogFragment.show(getSupportFragmentManager(),"");
+    }
+
     @Override
-    public void onListFragmentInteraction(Contents.ItemBean itemBean) {
+    public void onListFragmentInteraction(Contents.ItemBean itemBean, int clickIndex) {
         Intent intent;
+        if (itemBean.getItemtype() == 1) {
+            switch (itemBean.index) {
+                case 11://DialogFragment怎么用,
+                    if (clickIndex == 0) {
+                        MyDialogFragment.ModeData modeData =
+                                new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_DIALOG,
+                                        false,
+                                        "方式1","确认","取消");
+                        showDialogFragment(modeData, null,
+                                new MyDialogFragment.OnDialogClickListener() {
+                                    @Override
+                                    public void onNegClick(DialogInterface dialog, int which) {
+                                        Utils.showToast(BaseAct.this, "onNegClick");
+                                    }
+
+                                    @Override
+                                    public void onPosClick(DialogInterface dialog, int which) {
+                                        Utils.showToast(BaseAct.this, "onPosClick");
+
+                                    }
+                                });
+                    }else if (clickIndex == 1) {
+                        MyDialogFragment.ModeData modeData =
+                                new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_VIEW,
+                                        R.layout.dialog_fragment,true);
+                        showDialogFragment(modeData, new MyDialogFragment.OnShowEntityCreateListener() {
+                            @Override
+                            public void onViewInflateFinish(View viewInflated) {
+                                Utils.showToast(BaseAct.this, "onViewInflateFinish");
+                            }
+                        }, null);
+                    }
+                    break;
+            }
+            return;
+        }
         switch (itemBean.index) {
             case 0://放大镜
 //                Intent intent = new Intent(this, MagnifierActivity.class);
@@ -99,6 +147,11 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 break;
             case 9://ListFragment
                 Utils.showToast(this, "本身这个列表页面就是ListFragment");
+                break;
+            case 10://FragmentStatePagerAdapter
+                intent = new Intent(this, NavMainActivity.class);
+                startAct(intent);
+                finish();
                 break;
         }
     }

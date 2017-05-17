@@ -73,7 +73,24 @@
 ## 10.单例吐司Toast，不需要等待上一个消失
 ## 11.ListFragment怎么用
 
-## 12.To be continued...
+* 调用setListAdapter设置适配器；
+* 重写onListItemClick调用点击时间；
+* 布局的listview的id必须为@android:id/list；
+
+## 12.FragmentStatePagerAdapter怎么用
+
+* 重写Fragment getItem(int position)；
+* 重写int getCount()；
+* 将实例传给ViewPager，ViewPager.setAdapter；
+
+## 13.DialogFragment怎么用
+
+* 重写方法onCreateDialog，可以构造一个AlertDialog作为返回值，此方法在onCreate之后onCreateView之前;
+* 重写方法onCreateView，可以构造一个View作为返回值,然后定义点击时间;
+* 显示需要调用DialogFragment的show()方法
+* 设置能否取消是要设置DialogFragment的setCancelable方法才会生效，这个对于重写onCreateDialog的方式生效，重写方法onCreateView无效;
+
+## 14.To be continued...
 
 
 ## License

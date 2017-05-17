@@ -12,15 +12,26 @@ public class Contents {
     public static String[] CONTENTS = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
             "RadialGradient水波纹", "SweepGradient制作Radar雷达效果效果", "刮刮纸Xfermode",
             "menu怎么用", "FloatingActionButton和Snackbar怎么用", "单例吐司Toast，不需要等待上一个消失",
-            "ListFragment怎么用",
+            "ListFragment怎么用","FragmentStatePagerAdapter怎么用","DialogFragment怎么用",
     };
     //0--效果
     //1--逻辑模板代码 套路
     public static int[] CATEGORIS = {0, 0, 0,
             0, 0, 0,
-            1, 1, 1, 1
+            1, 1, 1,
+            1, 1, 1
     };
     public static int CATEGORIS_COUNT = 2;
+
+
+    //0--2个textview
+    //1--3个textview
+    public static int[] ITEM_TYPES = {0, 0, 0,
+            0, 0, 0,
+            0, 0, 0,
+            0, 0, 1
+    };
+    public static int LIST_ITEM_TYPE_COUNT = 2;
 
     public static String getCategoryStr(int category) {
         switch (category) {
@@ -41,14 +52,16 @@ public class Contents {
         List<ItemBean> itemBeens = new ArrayList<>();
         if (catagory == -1) {
             for (int i = 0; i < CONTENTS.length; i++) {//全部加载
-                itemBeens.add(new ItemBean(i, CONTENTS[i], getCategoryStr(CATEGORIS[i])));
+                itemBeens.add(new ItemBean(i, CONTENTS[i],
+                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]));
             }
             return itemBeens;
         }
         for (int i = 0; i < CONTENTS.length; i++) {
             if (catagory == CATEGORIS[i]) {//特效
                 //只加载 特效 或者 套路
-                itemBeens.add(new ItemBean(i, CONTENTS[i], getCategoryStr(CATEGORIS[i])));
+                itemBeens.add(new ItemBean(i, CONTENTS[i],
+                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]));
             }
         }
         return itemBeens;
@@ -58,11 +71,13 @@ public class Contents {
         public int index;
         public String name;
         public String category;
+        public int itemtype;
 
-        public ItemBean(int index, String name, String category) {
+        public ItemBean(int index, String name, String category, int itemtype) {
             this.index = index;
             this.name = name;
             this.category = category;
+            this.itemtype = itemtype;
         }
 
         public int getIndex() {
@@ -87,6 +102,14 @@ public class Contents {
 
         public void setCategory(String category) {
             this.category = category;
+        }
+
+        public int getItemtype() {
+            return itemtype;
+        }
+
+        public void setItemtype(int itemtype) {
+            this.itemtype = itemtype;
         }
     }
 

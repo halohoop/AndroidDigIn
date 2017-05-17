@@ -71,7 +71,7 @@ public class ListDataFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        mListener.onListFragmentInteraction(mItemBeens.get(position));
+        mListener.onListFragmentInteraction(mItemBeens.get(position), 0);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class ListDataFragment extends ListFragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Contents.ItemBean itemBean);
+        void onListFragmentInteraction(Contents.ItemBean itemBean, int clickIndex);
     }
 
     class MyAdapter extends BaseAdapter {
@@ -130,26 +130,74 @@ public class ListDataFragment extends ListFragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder viewHolder = null;
-            if (convertView != null) {
-                viewHolder = (ViewHolder) convertView.getTag();
-            } else {
-                View itemView = View.inflate(getActivity(), R.layout.item, null);
-                viewHolder = new ViewHolder();
-                viewHolder.tvLeft = (TextView) itemView.findViewById(R.id.item_tv_left);
-                viewHolder.tvRight = (TextView) itemView.findViewById(R.id.item_tv_right);
-                itemView.setTag(viewHolder);
-                convertView = itemView;
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            if (getItemViewType(position) == 0) {
+                ViewHolder viewHolder = null;
+                if (convertView != null) {
+                    viewHolder = (ViewHolder) convertView.getTag();
+                } else {
+                    View itemView = View.inflate(getActivity(), R.layout.item, null);
+                    viewHolder = new ViewHolder();
+                    viewHolder.tvLeft = (TextView) itemView.findViewById(R.id.item_tv_left);
+                    viewHolder.tvRight = (TextView) itemView.findViewById(R.id.item_tv_right);
+                    itemView.setTag(viewHolder);
+                    convertView = itemView;
+                }
+                viewHolder.tvLeft.setText(mItemBeens.get(position).category);
+                viewHolder.tvRight.setText(mItemBeens.get(position).name);
+            } else if (getItemViewType(position) == 1) {
+                ViewHolder2 viewHolder = null;
+                if (convertView != null) {
+                    viewHolder = (ViewHolder2) convertView.getTag();
+                } else {
+                    View itemView = View.inflate(getActivity(), R.layout.item2, null);
+                    viewHolder = new ViewHolder2();
+                    viewHolder.tvLeft = (TextView) itemView.findViewById(R.id.item_tv_left);
+                    viewHolder.tvRight1 = (TextView) itemView.findViewById(R.id.item_tv_right1);
+                    viewHolder.tvRight2 = (TextView) itemView.findViewById(R.id.item_tv_right2);
+                    itemView.setTag(viewHolder);
+                    convertView = itemView;
+                }
+                viewHolder.tvLeft.setText(mItemBeens.get(position).category);
+                viewHolder.tvRight1.setText(mItemBeens.get(position).name + " 方式1");
+                viewHolder.tvRight2.setText("方式2");
+                viewHolder.tvRight1.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        mListener.onListFragmentInteraction(mItemBeens.get(position), 0);
+                    }
+                });
+                viewHolder.tvRight2.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        mListener.onListFragmentInteraction(mItemBeens.get(position), 1);
+                    }
+                });
             }
-            viewHolder.tvLeft.setText(mItemBeens.get(position).category);
-            viewHolder.tvRight.setText(mItemBeens.get(position).name);
             return convertView;
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return 2;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return mItemBeens.get(position).getItemtype();
         }
     }
 
     static class ViewHolder {
         TextView tvRight;
         TextView tvLeft;
+    }
+
+    static class ViewHolder2 {
+        TextView tvLeft;
+        TextView tvRight1;
+        TextView tvRight2;
     }
 }
