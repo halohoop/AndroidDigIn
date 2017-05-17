@@ -34,16 +34,16 @@ public class MenuUsageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.menu1, menu);
         return true;
     }
 
-    //R.menu.main_menu
+    //R.menu.menu1
     public void onSettingsClick(MenuItem item) {
         Utils.showToast(this,"吐司1");
     }
 
-    //R.menu.main_menu
+    //R.menu.menu1
     public void onTestPrefClick(MenuItem item) {
         Utils.showToast(this,"吐司2");
     }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AndroidDigIn</string>
     <string name="title_activity_menu_usage">MenuUsageActivity</string>
+    <string name="title_activity_nav_main">NavMainActivity</string>
+    <string name="title_templete">套路</string>
+    <string name="title_effect">特效</string>
 </resources>

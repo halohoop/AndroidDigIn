@@ -2,112 +2,40 @@ package com.halohoop.androiddigin;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import com.halohoop.androiddigin.frags.ListDataFragment;
 
-    private ListView lv;
-    private String[] items = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
-            "RadialGradient水波纹","SweepGradient制作Radar雷达效果效果","刮刮纸Xfermode",
-            "menu怎么用","FloatingActionButton和Snackbar怎么用","单例吐司Toast，不需要等待上一个消失",
-    };
+public class MainActivity extends BaseAct {
+
+    private ViewGroup mViewGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lv = (ListView) findViewById(R.id.lv);
-        lv.setAdapter(new MyAdapter());
-        lv.setOnItemClickListener(this);
+        mViewGroup = (ViewGroup) findViewById(R.id.frag_container);
+        ListDataFragment listDataFragment = ListDataFragment.newInstance(-1);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.frag_container, listDataFragment,"")
+                .commit();
     }
-
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (position) {
-            case 0://放大镜
-                Intent intent = new Intent(this, MagnifierActivity.class);
-                startAct(intent);
-                break;
-            case 1://ColorMatrix
-                intent = new Intent(this, ColorMatrixActivity.class);
-                startAct(intent);
-                break;
-            case 2://Reveal效果
-                intent = new Intent(this, RevealActivity.class);
-                startAct(intent);
-                break;
-            case 3://RadialGradient水波纹
-                intent = new Intent(this, RadialGradientActivity.class);
-                startAct(intent);
-                break;
-            case 4://SweepGradient制作Radar雷达效果效果
-                intent = new Intent(this, SweepGradientActivity.class);
-                startAct(intent);
-                break;
-            case 5://刮刮纸Xfermode
-                intent = new Intent(this, ScratchActivity.class);
-                startAct(intent);
-                break;
-            case 6://menu怎么用
-                intent = new Intent(this, MenuUsageActivity.class);
-                startAct(intent);
-                break;
-            case 7://FloatingActionButton和Snackbar怎么用
-                intent = new Intent(this, MenuUsageActivity.class);
-                startAct(intent);
-                break;
-            case 8://"单例吐司Toast，不需要等待上一个消失"
-                intent = new Intent(this, MenuUsageActivity.class);
-                startAct(intent);
-                break;
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        MenuItem item = menu.getItem(0);
+        item.setTitle("切换为分类模式");
+        return true;
     }
-
-    private void startAct(Intent intent) {
-        startActivity(intent);
-    }
-
-    class MyAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return items.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return items[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder viewHolder = null;
-            if (convertView != null) {
-                viewHolder = (ViewHolder) convertView.getTag();
-            } else {
-                View itemView = View.inflate(MainActivity.this, R.layout.item, null);
-                viewHolder = new ViewHolder();
-                viewHolder.tv = (TextView) itemView.findViewById(R.id.item_tv);
-                itemView.setTag(viewHolder);
-                convertView = itemView;
-            }
-            viewHolder.tv.setText(items[position]);
-            return convertView;
-        }
-    }
-
-    static class ViewHolder {
-        TextView tv;
+    //R.menu.menu1
+    public void onMenuClick(MenuItem item) {
+        Intent intent = new Intent(this, NavMainActivity.class);
+        startAct(intent);
+        finish();
     }
 
 }

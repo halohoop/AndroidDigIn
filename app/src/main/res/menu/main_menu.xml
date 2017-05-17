@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_settings"
-        android:title="菜单1"
-        android:onClick="onSettingsClick"/>
-    <item android:id="@+id/action_test_pref"
-        android:title="菜单2"
-        android:onClick="onTestPrefClick"/>
+        android:title="切换为分类模式"
+        android:onClick="onMenuClick"/>
 </menu>
