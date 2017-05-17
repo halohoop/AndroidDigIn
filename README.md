@@ -88,7 +88,7 @@
 * 重写方法onCreateDialog，可以构造一个AlertDialog作为返回值，此方法在onCreate之后onCreateView之前;
 * 重写方法onCreateView，可以构造一个View作为返回值,然后定义点击时间;
 * 显示需要调用DialogFragment的show()方法
-* 设置能否取消是要设置DialogFragment的setCancelable方法才会生效，这个对于重写onCreateDialog的方式生效，重写方法onCreateView无效;
+* 设置能否取消是要设置DialogFragment的setCancelable方法才会生效，这个对于重写onCreateDialog和重写方法onCreateView都生效;
 
 ## 14.To be continued...
 
