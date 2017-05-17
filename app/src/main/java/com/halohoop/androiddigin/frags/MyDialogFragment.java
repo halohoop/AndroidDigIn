@@ -180,7 +180,14 @@ public class MyDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Utils.log("onCreateView");
         if (mModeData.getMode() == CUSTOM_VIEW) {
+            setCancelable(mModeData.isCancelable());
             View inflate = inflater.inflate(mModeData.getLayoutResId(), null);
+            inflate.findViewById(R.id.tv_exit).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                }
+            });
             //设置点击事件的接口
             if (mOnShowEntityCreateListener != null)
                 mOnShowEntityCreateListener.onViewInflateFinish(inflate);

@@ -93,10 +93,22 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                     }else if (clickIndex == 1) {
                         MyDialogFragment.ModeData modeData =
                                 new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_VIEW,
-                                        R.layout.dialog_fragment,true);
+                                        R.layout.dialog_fragment,false);
                         showDialogFragment(modeData, new MyDialogFragment.OnShowEntityCreateListener() {
                             @Override
                             public void onViewInflateFinish(View viewInflated) {
+                                viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        
+                                    }
+                                });
+                                viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                    }
+                                });
                                 Utils.showToast(BaseAct.this, "onViewInflateFinish");
                             }
                         }, null);
