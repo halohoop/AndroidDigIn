@@ -13,7 +13,10 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         if (Contents.CONTENTS.length != Contents.CATEGORIS.length) {
-            throw new RuntimeException("数量不对");
+            throw new RuntimeException("数量不对1");
+        }
+        if (Contents.CONTENTS.length != Contents.ITEM_TYPES.length) {
+            throw new RuntimeException("数量不对2");
         }
     }
 }
