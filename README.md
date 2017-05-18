@@ -107,7 +107,11 @@
 #####
 	SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
 
-## 15.To be continued...
+## 15.微信侧滑退出
+
+*
+
+## 16.To be continued...
 
 
 ## License

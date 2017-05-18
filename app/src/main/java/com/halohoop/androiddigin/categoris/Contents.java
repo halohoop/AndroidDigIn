@@ -1,5 +1,7 @@
 package com.halohoop.androiddigin.categoris;
 
+import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,19 +14,19 @@ public class Contents {
     public static String[] CONTENTS = {"放大镜MagnifierView", "理解ColorMatrix", "Reveal效果",
             "RadialGradient水波纹", "SweepGradient制作Radar雷达效果效果", "刮刮纸Xfermode",
             "menu怎么用", "FloatingActionButton和Snackbar怎么用", "单例吐司Toast，不需要等待上一个消失",
-            "ListFragment怎么用","FragmentStatePagerAdapter怎么用","DialogFragment怎么用",
-            "PreferenceFragment怎么用",
+            "ListFragment怎么用", "FragmentStatePagerAdapter怎么用", "DialogFragment怎么用",
+            "PreferenceFragment怎么用", "ViewDragHelper的使用", "仿微信侧滑退出",
     };
     //0--效果，特效
     //1--逻辑模板代码 套路
+    //2--交互
     public static int[] CATEGORIS = {0, 0, 0,
             0, 0, 0,
             1, 1, 1,
             1, 1, 1,
-            1,
+            1, 1, 2,
     };
-    public static int CATEGORIS_COUNT = 2;
-
+    public static int CATEGORIS_COUNT = 3;
 
     //0--2个textview
     //1--3个textview
@@ -32,7 +34,7 @@ public class Contents {
             0, 0, 0,
             0, 0, 0,
             0, 0, 1,
-            1,
+            1, 0, 0,
     };
     public static int LIST_ITEM_TYPE_COUNT = 2;
 
@@ -42,12 +44,15 @@ public class Contents {
                 return "特效";
             case 1:
                 return "套路";
+            case 2:
+                return "交互";
         }
         return "";
     }
 
     /**
      * 加载全部或者某一类
+     *
      * @param catagory
      * @return
      */
@@ -55,8 +60,10 @@ public class Contents {
         List<ItemBean> itemBeens = new ArrayList<>();
         if (catagory == -1) {
             for (int i = 0; i < CONTENTS.length; i++) {//全部加载
-                itemBeens.add(new ItemBean(i, CONTENTS[i],
-                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]));
+                ItemBean itemBean = new ItemBean(i, CONTENTS[i],
+                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]);
+                itemBean.setCategoryTextColor(CATEGORIS[i]);
+                itemBeens.add(itemBean);
             }
             return itemBeens;
         }
@@ -71,16 +78,37 @@ public class Contents {
     }
 
     public static class ItemBean {
-        public int index;
-        public String name;
-        public String category;
-        public int itemtype;
+        private int index;
+        private String name;
+        private String category;
+        private int categoryTextColor;
+        private int itemtype;
 
         public ItemBean(int index, String name, String category, int itemtype) {
             this.index = index;
             this.name = name;
             this.category = category;
             this.itemtype = itemtype;
+        }
+
+        public int getCategoryTextColor() {
+            return categoryTextColor;
+        }
+
+        public void setCategoryTextColor(int category) {
+            switch (category) {
+                case 0:
+                    this.categoryTextColor = Color.RED;
+                    break;
+                case 1:
+                    this.categoryTextColor = Color.BLUE;
+                    break;
+                case 2:
+                    this.categoryTextColor = Color.GREEN;
+                    break;
+                default:
+                    this.categoryTextColor = Color.RED;
+            }
         }
 
         public int getIndex() {

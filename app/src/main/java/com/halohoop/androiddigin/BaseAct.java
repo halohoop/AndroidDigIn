@@ -80,7 +80,7 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
 
     private void way2(Contents.ItemBean itemBean) {
         Intent intent;
-        switch (itemBean.index) {
+        switch (itemBean.getIndex()) {
             case 0://放大镜
 //                Intent intent = new Intent(this, MagnifierActivity.class);
 //                startAct(intent);
@@ -128,11 +128,19 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 startAct(intent);
                 finish();
                 break;
+            case 13://ViewDragHelper的使用
+                showFragment(R.layout.fragment_drag);
+                Utils.showToast(this,"ViewDragHelper的使用");
+                break;
+            case 14://微信侧滑退出
+                showFragment(R.layout.fragment_drag);
+                Utils.showToast(this,"侧滑退出");
+                break;
         }
     }
 
     private void way1(Contents.ItemBean itemBean, int clickIndex) {
-        switch (itemBean.index) {
+        switch (itemBean.getIndex()) {
             case 11://DialogFragment怎么用,
                 if (clickIndex == 0) {
                     MyDialogFragment.ModeData modeData =

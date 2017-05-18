@@ -2,7 +2,6 @@ package com.halohoop.androiddigin.frags;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -144,12 +143,9 @@ public class ListDataFragment extends ListFragment {
                     itemView.setTag(viewHolder);
                     convertView = itemView;
                 }
-                if(Contents.CATEGORIS[mItemBeens.get(position).index]==0)
-                    viewHolder.tvLeft.setTextColor(Color.RED);
-                else
-                    viewHolder.tvLeft.setTextColor(Color.BLUE);
-                viewHolder.tvLeft.setText(mItemBeens.get(position).category);
-                viewHolder.tvRight.setText(mItemBeens.get(position).name);
+                viewHolder.tvLeft.setTextColor(mItemBeens.get(position).getCategoryTextColor());
+                viewHolder.tvLeft.setText(mItemBeens.get(position).getCategory());
+                viewHolder.tvRight.setText(mItemBeens.get(position).getName());
             } else if (getItemViewType(position) == 1) {
                 ViewHolder2 viewHolder = null;
                 if (convertView != null) {
@@ -163,12 +159,9 @@ public class ListDataFragment extends ListFragment {
                     itemView.setTag(viewHolder);
                     convertView = itemView;
                 }
-                if(Contents.CATEGORIS[mItemBeens.get(position).index]==1)
-                    viewHolder.tvLeft.setTextColor(Color.BLUE);
-                else
-                    viewHolder.tvLeft.setTextColor(Color.RED);
-                viewHolder.tvLeft.setText(mItemBeens.get(position).category);
-                viewHolder.tvRight1.setText(mItemBeens.get(position).name + " action1");
+                viewHolder.tvLeft.setTextColor(mItemBeens.get(position).getCategoryTextColor());
+                viewHolder.tvLeft.setText(mItemBeens.get(position).getCategory());
+                viewHolder.tvRight1.setText(mItemBeens.get(position).getName() + " action1");
                 viewHolder.tvRight2.setText("action2");
                 viewHolder.tvRight1.setOnClickListener(new View.OnClickListener() {
 

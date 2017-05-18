@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.halohoop.androiddigin.widgets.DragViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="只有我可以滑动" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="我不可以滑动" />
+
+</com.halohoop.androiddigin.widgets.DragViewGroup>
