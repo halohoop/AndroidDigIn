@@ -2,6 +2,7 @@ package com.halohoop.androiddigin.frags;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -56,9 +57,9 @@ public class ListDataFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mCategory = getArguments().getInt(ITEM_DATAS);
-            mItemBeens = Contents.queryItemBeans(mCategory);
+            mCategory = getArguments().getInt(ITEM_DATAS,-1);
         }
+        mItemBeens = Contents.queryItemBeans(mCategory);
     }
 
     @Override
@@ -143,6 +144,10 @@ public class ListDataFragment extends ListFragment {
                     itemView.setTag(viewHolder);
                     convertView = itemView;
                 }
+                if(Contents.CATEGORIS[mItemBeens.get(position).index]==0)
+                    viewHolder.tvLeft.setTextColor(Color.RED);
+                else
+                    viewHolder.tvLeft.setTextColor(Color.BLUE);
                 viewHolder.tvLeft.setText(mItemBeens.get(position).category);
                 viewHolder.tvRight.setText(mItemBeens.get(position).name);
             } else if (getItemViewType(position) == 1) {
@@ -158,6 +163,10 @@ public class ListDataFragment extends ListFragment {
                     itemView.setTag(viewHolder);
                     convertView = itemView;
                 }
+                if(Contents.CATEGORIS[mItemBeens.get(position).index]==1)
+                    viewHolder.tvLeft.setTextColor(Color.BLUE);
+                else
+                    viewHolder.tvLeft.setTextColor(Color.RED);
                 viewHolder.tvLeft.setText(mItemBeens.get(position).category);
                 viewHolder.tvRight1.setText(mItemBeens.get(position).name + " action1");
                 viewHolder.tvRight2.setText("action2");

@@ -49,10 +49,10 @@ public class NavMainActivity extends BaseAct {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_templete:
+                case R.id.navigation_effect:
                     mVp.setCurrentItem(0);
                     return true;
-                case R.id.navigation_effect:
+                case R.id.navigation_templete:
                     mVp.setCurrentItem(1);
                     return true;
             }

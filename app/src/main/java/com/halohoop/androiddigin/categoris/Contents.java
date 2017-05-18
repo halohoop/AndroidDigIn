@@ -15,7 +15,7 @@ public class Contents {
             "ListFragment怎么用","FragmentStatePagerAdapter怎么用","DialogFragment怎么用",
             "PreferenceFragment怎么用",
     };
-    //0--效果
+    //0--效果，特效
     //1--逻辑模板代码 套路
     public static int[] CATEGORIS = {0, 0, 0,
             0, 0, 0,
