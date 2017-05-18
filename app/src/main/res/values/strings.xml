@@ -4,4 +4,6 @@
     <string name="title_activity_nav_main">NavMainActivity</string>
     <string name="title_templete">套路</string>
     <string name="title_effect">特效</string>
+    <string name="sp_usename_key">username</string>
+    <string name="sp_password_key">password</string>
 </resources>

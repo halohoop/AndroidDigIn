@@ -13,13 +13,15 @@ public class Contents {
             "RadialGradient水波纹", "SweepGradient制作Radar雷达效果效果", "刮刮纸Xfermode",
             "menu怎么用", "FloatingActionButton和Snackbar怎么用", "单例吐司Toast，不需要等待上一个消失",
             "ListFragment怎么用","FragmentStatePagerAdapter怎么用","DialogFragment怎么用",
+            "PreferenceFragment怎么用",
     };
     //0--效果
     //1--逻辑模板代码 套路
     public static int[] CATEGORIS = {0, 0, 0,
             0, 0, 0,
             1, 1, 1,
-            1, 1, 1
+            1, 1, 1,
+            1,
     };
     public static int CATEGORIS_COUNT = 2;
 
@@ -29,7 +31,8 @@ public class Contents {
     public static int[] ITEM_TYPES = {0, 0, 0,
             0, 0, 0,
             0, 0, 0,
-            0, 0, 1
+            0, 0, 1,
+            1,
     };
     public static int LIST_ITEM_TYPE_COUNT = 2;
 

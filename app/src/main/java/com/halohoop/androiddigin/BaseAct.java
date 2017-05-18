@@ -2,14 +2,17 @@ package com.halohoop.androiddigin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.halohoop.androiddigin.categoris.Contents;
 import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.MyDialogFragment;
+import com.halohoop.androiddigin.frags.MyPerferenceFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.MenuUsageActivity;
@@ -68,55 +71,15 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
 
     @Override
     public void onListFragmentInteraction(Contents.ItemBean itemBean, int clickIndex) {
-        Intent intent;
         if (itemBean.getItemtype() == 1) {
-            switch (itemBean.index) {
-                case 11://DialogFragment怎么用,
-                    if (clickIndex == 0) {
-                        MyDialogFragment.ModeData modeData =
-                                new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_DIALOG,
-                                        false,
-                                        "方式1","确认","取消");
-                        showDialogFragment(modeData, null,
-                                new MyDialogFragment.OnDialogClickListener() {
-                                    @Override
-                                    public void onNegClick(DialogInterface dialog, int which) {
-                                        Utils.showToast(BaseAct.this, "onNegClick");
-                                    }
-
-                                    @Override
-                                    public void onPosClick(DialogInterface dialog, int which) {
-                                        Utils.showToast(BaseAct.this, "onPosClick");
-
-                                    }
-                                });
-                    }else if (clickIndex == 1) {
-                        MyDialogFragment.ModeData modeData =
-                                new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_VIEW,
-                                        R.layout.dialog_fragment,false);
-                        showDialogFragment(modeData, new MyDialogFragment.OnShowEntityCreateListener() {
-                            @Override
-                            public void onViewInflateFinish(View viewInflated) {
-                                viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        
-                                    }
-                                });
-                                viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-
-                                    }
-                                });
-                                Utils.showToast(BaseAct.this, "onViewInflateFinish");
-                            }
-                        }, null);
-                    }
-                    break;
-            }
+            way1(itemBean, clickIndex);
             return;
         }
+        way2(itemBean);
+    }
+
+    private void way2(Contents.ItemBean itemBean) {
+        Intent intent;
         switch (itemBean.index) {
             case 0://放大镜
 //                Intent intent = new Intent(this, MagnifierActivity.class);
@@ -164,6 +127,77 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 intent = new Intent(this, NavMainActivity.class);
                 startAct(intent);
                 finish();
+                break;
+        }
+    }
+
+    private void way1(Contents.ItemBean itemBean, int clickIndex) {
+        switch (itemBean.index) {
+            case 11://DialogFragment怎么用,
+                if (clickIndex == 0) {
+                    MyDialogFragment.ModeData modeData =
+                            new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_DIALOG,
+                                    false,
+                                    "方式1","确认","取消");
+                    showDialogFragment(modeData, null,
+                            new MyDialogFragment.OnDialogClickListener() {
+                                @Override
+                                public void onNegClick(DialogInterface dialog, int which) {
+                                    Utils.showToast(BaseAct.this, "onNegClick");
+                                }
+
+                                @Override
+                                public void onPosClick(DialogInterface dialog, int which) {
+                                    Utils.showToast(BaseAct.this, "onPosClick");
+
+                                }
+                            });
+                }else if (clickIndex == 1) {
+                    MyDialogFragment.ModeData modeData =
+                            new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_VIEW,
+                                    R.layout.dialog_fragment,false);
+                    showDialogFragment(modeData, new MyDialogFragment.OnShowEntityCreateListener() {
+                        @Override
+                        public void onViewInflateFinish(View viewInflated) {
+                            viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                }
+                            });
+                            viewInflated.findViewById(R.id.iv1).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                }
+                            });
+                            Utils.showToast(BaseAct.this, "onViewInflateFinish");
+                        }
+                    }, null);
+                }
+                break;
+            case 12://PreferenceFragment怎么用,
+                if (clickIndex == 0) {
+                    MyPerferenceFragment myPerferenceFragment = MyPerferenceFragment.newInstance(
+                            R.xml.demo1,
+                            R.xml.demo2);
+                    //这里就不能使用v4包的了，因为PerferenceFragment不属于v4
+                    getFragmentManager().beginTransaction()
+                            .addToBackStack("")
+                            .replace(android.R.id.content,myPerferenceFragment)
+                            .commit();
+                }else if (clickIndex == 1) {
+                    SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
+                    String string;
+                    if (System.currentTimeMillis() % 2 == 0) {
+                        string = defaultSp.getString(getResources().getString(R.string.sp_usename_key),
+                                "nothing1 yet");
+                    } else {
+                        string = defaultSp.getString(getResources().getString(R.string.sp_password_key),
+                                "nothing2 yet");
+                    }
+                    Utils.showToast(this, string);
+                }
                 break;
         }
     }

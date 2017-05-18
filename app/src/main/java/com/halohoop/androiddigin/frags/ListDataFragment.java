@@ -159,8 +159,8 @@ public class ListDataFragment extends ListFragment {
                     convertView = itemView;
                 }
                 viewHolder.tvLeft.setText(mItemBeens.get(position).category);
-                viewHolder.tvRight1.setText(mItemBeens.get(position).name + " 方式1");
-                viewHolder.tvRight2.setText("方式2");
+                viewHolder.tvRight1.setText(mItemBeens.get(position).name + " action1");
+                viewHolder.tvRight2.setText("action2");
                 viewHolder.tvRight1.setOnClickListener(new View.OnClickListener() {
 
                     @Override
