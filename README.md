@@ -90,7 +90,24 @@
 * 显示需要调用DialogFragment的show()方法
 * 设置能否取消是要设置DialogFragment的setCancelable方法才会生效，这个对于重写onCreateDialog和重写方法onCreateView都生效;
 
-## 14.To be continued...
+## 14.PreferenceFragment怎么用
+
+* 继承PerferenceFragment；
+* 定义res/xml，其中的key就是可以获取到默认sp中值的key。
+#####
+	<?xml version="1.0" encoding="utf-8"?>
+	<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	    <EditTextPreference
+	        android:key="username"
+	        android:summary="Please provide your username"
+	        android:title="Your Name" />
+	</PreferenceScreen>
+
+* 获取到默认sp:
+#####
+	SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
+
+## 15.To be continued...
 
 
 ## License
