@@ -4,14 +4,18 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.util.Random;
 
 /**
  * Created by Pooholah on 2017/5/5.
@@ -81,5 +85,46 @@ public class Utils {
     /**
      * 单例吐司---end
      */
+
+    /**
+     * 从颜色得到另一个对比度高的颜色
+     * @param color
+     * @return
+     */
+    public static int getComplimentColor(@ColorInt int color) {
+        // get existing colors
+        int alpha = Color.alpha(color);
+        int red = Color.red(color);
+        int blue = Color.blue(color);
+        int green = Color.green(color);
+
+        // find compliments
+        red = (~red) & 0xff;
+        blue = (~blue) & 0xff;
+        green = (~green) & 0xff;
+
+        return Color.argb(alpha, red, green, blue);
+    }
+
+
+
+    public static int randomAColor(Random random){
+        return Color.rgb(random.nextInt(255),random.nextInt(255),random.nextInt(255));
+    }
+
+    public static int getContrastColor(@ColorInt int color) {
+        // Counting the perceptive luminance - human eye favors green color...
+        double a = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255;
+
+        int d;
+        if (a < 0.5) {
+            d = 0; // bright colors - black font
+        } else {
+            d = 255; // dark colors - white font
+        }
+
+        return Color.rgb(d, d, d);
+    }
+
 
 }
