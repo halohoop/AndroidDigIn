@@ -21,16 +21,14 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary" />
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways" />
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:tabTextAppearance="@style/TabLayoutTheme"
-                app:tabGravity="center"
-                app:tabMode="scrollable" />
+                app:tabTextAppearance="@style/TabLayoutTheme" />
 
         </android.support.design.widget.AppBarLayout>
 

@@ -15,6 +15,7 @@ import com.halohoop.androiddigin.utils.Utils;
 public class MainActivity extends BaseAct {
 
     private ViewGroup mViewGroup;
+    private ListDataFragment listDataFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends BaseAct {
             mViewGroup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ListDataFragment listDataFragment = ListDataFragment.newInstance(-1);
+                    listDataFragment = ListDataFragment.newInstance(-1);
                     getSupportFragmentManager().beginTransaction()
                             .add(R.id.frag_container, listDataFragment, "")
                             .commit();

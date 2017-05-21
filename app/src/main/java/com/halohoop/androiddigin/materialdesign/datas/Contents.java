@@ -6,6 +6,6 @@ package com.halohoop.androiddigin.materialdesign.datas;
 
 public class Contents {
     public static String[] TABS = {
-            "Drawer","ToolBar"
+            "Drawer","ToolBar","Nested Scrolling"
     };
 }

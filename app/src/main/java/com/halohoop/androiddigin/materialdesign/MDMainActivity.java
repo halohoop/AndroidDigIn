@@ -23,6 +23,8 @@ import android.view.View;
 
 import com.halohoop.androiddigin.R;
 import com.halohoop.androiddigin.frags.OneClickFragment;
+import com.halohoop.androiddigin.frags.RecyclerDataFragment;
+import com.halohoop.androiddigin.materialdesign.datas.Cheeses;
 import com.halohoop.androiddigin.materialdesign.datas.Contents;
 import com.halohoop.androiddigin.utils.Utils;
 
@@ -32,7 +34,9 @@ import java.util.Random;
  * Created by Pooholah on 2017/5/21.
  */
 
-public class MDMainActivity extends AppCompatActivity implements OneClickFragment.ClickListener, View.OnClickListener {
+public class MDMainActivity extends AppCompatActivity
+        implements OneClickFragment.ClickListener, View.OnClickListener,
+        RecyclerDataFragment.OnRecyclerFragmentInteractionListener {
 
     private ViewPager mViewpager;
     private TabLayout mTabLayout;
@@ -86,6 +90,8 @@ public class MDMainActivity extends AppCompatActivity implements OneClickFragmen
             case 1:
                 animateToolBar(true);
 //                animateToolBar(false);
+                break;
+            case 2:
                 break;
         }
     }
@@ -156,15 +162,18 @@ public class MDMainActivity extends AppCompatActivity implements OneClickFragmen
         @Override
 
         public Fragment getItem(int position) {
-            OneClickFragment oneClickFragment = null;
+            Fragment frag = null;
             switch (position) {
                 case 0:
                 case 1:
-                    oneClickFragment = OneClickFragment.newInstance(position,
+                    frag = OneClickFragment.newInstance(position,
                             Utils.randomAColor(RANDOM));
                     break;
+                case 2:
+                    frag = RecyclerDataFragment.newInstance();
+                    break;
             }
-            return oneClickFragment;
+            return frag;
         }
 
         @Override
@@ -196,4 +205,17 @@ public class MDMainActivity extends AppCompatActivity implements OneClickFragmen
         }
     }
 
+    @Override
+    public void onListFragmentInteraction(int clickIndex){
+        Utils.showToast(this, Cheeses.NAMES[clickIndex]);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mRootDrawer.isDrawerOpen(GravityCompat.START)) {
+            mRootDrawer.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+    }
 }

@@ -13,6 +13,7 @@ import com.halohoop.androiddigin.categoris.Contents;
 import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.MyDialogFragment;
 import com.halohoop.androiddigin.frags.MyPerferenceFragment;
+import com.halohoop.androiddigin.frags.RecyclerDataFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
@@ -27,7 +28,8 @@ import com.halohoop.androiddigin.utils.Utils;
  * Created by Pooholah on 2017/5/17.
  */
 
-public abstract class BaseAct extends AppCompatActivity implements ListDataFragment.OnListFragmentInteractionListener {
+public abstract class BaseAct extends AppCompatActivity
+        implements ListDataFragment.OnListFragmentInteractionListener {
 
     protected final static String IS_BEENT_HROUGH_ONSAVEINSTANCESTATE
             = "is_beent_hrough_onSaveInstanceState";

@@ -70,6 +70,11 @@
 * R.menu.main_menu  xml中定义点击事件;
 
 ## 9.FloatingActionButton和Snackbar怎么用
+
+* SnackBar可以右滑dismiss；
+
+具体还可以查看这个属性：[SwipeDismissBehavior](https://developer.android.com/reference/android/support/design/widget/SwipeDismissBehavior.html)
+
 ## 10.单例吐司Toast，不需要等待上一个消失
 ## 11.ListFragment怎么用
 
@@ -107,7 +112,7 @@
 #####
 	SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
 
-## 15.微信侧滑退出
+## 15.Material Design各种实例
 
 *
 
