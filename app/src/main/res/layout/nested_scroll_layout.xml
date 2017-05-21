@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.halohoop.androiddigin.widgets.NestedScrollLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:text="我是头部" />
+
+    <TextView
+        android:background="#99CC00"
+        android:id="@+id/tv_mid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="我是腰部" />
+
+    <!--<ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start halohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\n2halohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop\nhalohoop last" />
+    </ScrollView>-->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</com.halohoop.androiddigin.widgets.NestedScrollLayout>

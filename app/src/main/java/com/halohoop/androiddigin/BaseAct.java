@@ -14,10 +14,12 @@ import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.MyDialogFragment;
 import com.halohoop.androiddigin.frags.MyPerferenceFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
+import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.MenuUsageActivity;
 import com.halohoop.androiddigin.showacts.RadialGradientActivity;
 import com.halohoop.androiddigin.showacts.RevealActivity;
+import com.halohoop.androiddigin.showacts.ShowActivity;
 import com.halohoop.androiddigin.showacts.SweepGradientActivity;
 import com.halohoop.androiddigin.utils.Utils;
 
@@ -48,7 +50,30 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
         super.onSaveInstanceState(outState, outPersistentState);
     }
 
-    protected void startAct(Intent intent) {
+    final protected void startAct(Intent intent) {
+        startActivity(intent);
+    }
+
+    final protected void showActivity(int resId, boolean showActionBar) {
+        Intent intent = new Intent(this, ShowActivity.class);
+        intent.putExtra(ShowActivity.RES_ID, resId);
+        startActivity(intent);
+    }
+
+    /**
+     * clz 必须为 ShowActivity的子类
+     * @param resId
+     * @param clz
+     * @param showActionBar
+     */
+    final protected void showActivity(int resId, Class clz, boolean showActionBar) {
+        Intent intent = new Intent(this, clz);
+        intent.putExtra(ShowActivity.RES_ID, resId);
+        startActivity(intent);
+    }
+
+    final protected void showActivity(Class clz) {
+        Intent intent = new Intent(this, clz);
         startActivity(intent);
     }
 
@@ -66,7 +91,7 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
         MyDialogFragment myDialogFragment = MyDialogFragment.newInstance(modeData);
         myDialogFragment.setOnShowEntityCreateListener(onShowEntityCreateListener);
         myDialogFragment.setOnDialogClickListener(onDialogClickListener);
-        myDialogFragment.show(getSupportFragmentManager(),"");
+        myDialogFragment.show(getSupportFragmentManager(), "");
     }
 
     @Override
@@ -130,11 +155,10 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 break;
             case 13://ViewDragHelper的使用
                 showFragment(R.layout.fragment_drag);
-                Utils.showToast(this,"ViewDragHelper的使用");
+                Utils.showToast(this, "ViewDragHelper的使用");
                 break;
-            case 14://微信侧滑退出
-                showFragment(R.layout.fragment_drag);
-                Utils.showToast(this,"侧滑退出");
+            case 14://Material Design
+                showActivity(MDMainActivity.class);
                 break;
         }
     }
@@ -146,7 +170,7 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                     MyDialogFragment.ModeData modeData =
                             new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_DIALOG,
                                     false,
-                                    "方式1","确认","取消");
+                                    "方式1", "确认", "取消");
                     showDialogFragment(modeData, null,
                             new MyDialogFragment.OnDialogClickListener() {
                                 @Override
@@ -160,10 +184,10 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
 
                                 }
                             });
-                }else if (clickIndex == 1) {
+                } else if (clickIndex == 1) {
                     MyDialogFragment.ModeData modeData =
                             new MyDialogFragment.ModeData(MyDialogFragment.MODE.CUSTOM_VIEW,
-                                    R.layout.dialog_fragment,false);
+                                    R.layout.dialog_fragment, false);
                     showDialogFragment(modeData, new MyDialogFragment.OnShowEntityCreateListener() {
                         @Override
                         public void onViewInflateFinish(View viewInflated) {
@@ -192,9 +216,9 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                     //这里就不能使用v4包的了，因为PerferenceFragment不属于v4
                     getFragmentManager().beginTransaction()
                             .addToBackStack("")
-                            .replace(android.R.id.content,myPerferenceFragment)
+                            .replace(android.R.id.content, myPerferenceFragment)
                             .commit();
-                }else if (clickIndex == 1) {
+                } else if (clickIndex == 1) {
                     SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
                     String string;
                     if (System.currentTimeMillis() % 2 == 0) {
@@ -209,5 +233,4 @@ public abstract class BaseAct extends AppCompatActivity implements ListDataFragm
                 break;
         }
     }
-
 }

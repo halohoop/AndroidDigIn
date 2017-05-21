@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/tv0"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@color/colorAccent"
@@ -11,6 +12,8 @@
         android:text="只有我可以滑动" />
 
     <TextView
+        android:id="@+id/tv1"
+        android:layout_toRightOf="@id/tv0"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="bottom"

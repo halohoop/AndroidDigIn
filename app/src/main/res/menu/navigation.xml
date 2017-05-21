@@ -10,4 +10,8 @@
         android:id="@+id/navigation_templete"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_templete" />
+    <item
+        android:id="@+id/navigation_interact"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_interact" />
 </menu>

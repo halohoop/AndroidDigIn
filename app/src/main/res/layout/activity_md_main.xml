@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.halohoop.androiddigin.MainActivity">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:tabTextAppearance="@style/TabLayoutTheme"
+                app:tabGravity="center"
+                app:tabMode="scrollable" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <!--放一个容器，可以用fragment加载进来，或者任何我们想要的布局 -->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/ic_brightness_6_black_24dp"
+            app:borderWidth="0dp"
+            app:fabSize="mini" />
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!--保证是最后一个，并且设置layout_gravity属性即可，左右适配需要start和end -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_view"
+        app:menu="@menu/drawer_view" />
+
+</android.support.v4.widget.DrawerLayout>

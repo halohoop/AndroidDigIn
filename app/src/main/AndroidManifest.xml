@@ -28,6 +28,10 @@
         <activity
             android:name=".NavMainActivity"
             android:label="@string/title_activity_nav_main"></activity>
+        <activity android:name=".showacts.ShowActivity" />
+        <activity android:name=".showacts.TmpShowActivity" />
+        <activity android:name=".materialdesign.MDMainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

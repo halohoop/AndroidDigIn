@@ -55,6 +55,9 @@ public class NavMainActivity extends BaseAct {
                 case R.id.navigation_templete:
                     mVp.setCurrentItem(1);
                     return true;
+                case R.id.navigation_interact:
+                    mVp.setCurrentItem(2);
+                    return true;
             }
             return false;
         }

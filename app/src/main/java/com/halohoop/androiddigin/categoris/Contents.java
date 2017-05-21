@@ -15,7 +15,7 @@ public class Contents {
             "RadialGradient水波纹", "SweepGradient制作Radar雷达效果效果", "刮刮纸Xfermode",
             "menu怎么用", "FloatingActionButton和Snackbar怎么用", "单例吐司Toast，不需要等待上一个消失",
             "ListFragment怎么用", "FragmentStatePagerAdapter怎么用", "DialogFragment怎么用",
-            "PreferenceFragment怎么用", "ViewDragHelper的使用", "仿微信侧滑退出",
+            "PreferenceFragment怎么用", "ViewDragHelper的使用", "Material Design各种实例",
     };
     //0--效果，特效
     //1--逻辑模板代码 套路
@@ -70,8 +70,10 @@ public class Contents {
         for (int i = 0; i < CONTENTS.length; i++) {
             if (catagory == CATEGORIS[i]) {//特效
                 //只加载 特效 或者 套路
-                itemBeens.add(new ItemBean(i, CONTENTS[i],
-                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]));
+                ItemBean itemBean = new ItemBean(i, CONTENTS[i],
+                        getCategoryStr(CATEGORIS[i]), Contents.ITEM_TYPES[i]);
+                itemBean.setCategoryTextColor(CATEGORIS[i]);
+                itemBeens.add(itemBean);
             }
         }
         return itemBeens;

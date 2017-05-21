@@ -7,21 +7,33 @@ import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 /**
  * Created by Pooholah on 2017/5/18.
  */
 
-public class DragViewGroup extends FrameLayout {
+public class DragViewGroup extends RelativeLayout {
 
     private View childAt0;
     private View childAt1;
-    private final ViewDragHelper viewDragHelper;
+    private ViewDragHelper viewDragHelper;
 
     public DragViewGroup(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         viewDragHelper = ViewDragHelper.create(this, new CallBack());
+    }
+
+    private ViewGroup findContentLayout(ViewGroup parent) {
+        if (parent == null) {
+            return null;
+        }
+        if (parent.getId() != android.R.id.content) {
+            return findContentLayout((ViewGroup) parent.getParent());
+        } else {
+            return parent;
+        }
     }
 
     @Override
@@ -46,7 +58,7 @@ public class DragViewGroup extends FrameLayout {
 
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
-            return child == childAt0;//之后孩子0可以被滑动
+            return child == childAt0/* || childAt1 == child*/;
         }
 
         @Override

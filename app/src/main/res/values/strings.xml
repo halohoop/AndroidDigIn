@@ -2,8 +2,11 @@
     <string name="app_name">AndroidDigIn</string>
     <string name="title_activity_menu_usage">MenuUsageActivity</string>
     <string name="title_activity_nav_main">NavMainActivity</string>
+    <string name="title_interact">交互</string>
     <string name="title_templete">套路</string>
     <string name="title_effect">特效</string>
     <string name="sp_usename_key">username</string>
     <string name="sp_password_key">password</string>
+    <string name="toggle_open">Open</string>
+    <string name="toggle_close">Close</string>
 </resources>
