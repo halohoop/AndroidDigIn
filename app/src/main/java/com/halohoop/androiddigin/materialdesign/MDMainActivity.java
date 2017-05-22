@@ -4,28 +4,28 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.halohoop.androiddigin.R;
+import com.halohoop.androiddigin.frags.CardViewShowFragment;
 import com.halohoop.androiddigin.frags.OneClickFragment;
 import com.halohoop.androiddigin.frags.RecyclerDataFragment;
 import com.halohoop.androiddigin.materialdesign.datas.Cheeses;
-import com.halohoop.androiddigin.materialdesign.datas.Contents;
 import com.halohoop.androiddigin.utils.Utils;
 
 import java.util.Random;
@@ -38,29 +38,34 @@ public class MDMainActivity extends AppCompatActivity
         implements OneClickFragment.ClickListener, View.OnClickListener,
         RecyclerDataFragment.OnRecyclerFragmentInteractionListener {
 
-    private ViewPager mViewpager;
-    private TabLayout mTabLayout;
+    //    private ViewPager mViewpager;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mRootDrawer;
     private Toolbar mToolbar;
     private FloatingActionButton mFab;
     private CoordinatorLayout mCoordinar;
     private Random RANDOM = new Random();
+    private NavigationView mNaviView;
+    private Fragment mCurrentFragment;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_md_main);
+//        setContentView(R.layout.activity_md_main);
+        setContentView(R.layout.activity_md_main_with_parallax);
         mRootDrawer = (DrawerLayout) findViewById(R.id.root_drawer);
         mCoordinar = (CoordinatorLayout) findViewById(R.id.coordinar);
-        mViewpager = (ViewPager) findViewById(R.id.viewpager);
+//        mViewpager = (ViewPager) findViewById(R.id.viewpager);
         //设置数据才能执行下面的mTabLayout.setupWithViewPager
-        mViewpager.setAdapter(new FragAdapter(getSupportFragmentManager()));
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
-        mTabLayout.setupWithViewPager(mViewpager);
+//        mViewpager.setAdapter(new FragAdapter(getSupportFragmentManager()));
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle("MD Demo from H");
         setSupportActionBar(mToolbar);
 
+        mNaviView = (NavigationView) findViewById(R.id.navView);
+        NaviItemListener naviItemListener = new NaviItemListener();
+        mNaviView.setNavigationItemSelectedListener(naviItemListener);
+        mNaviView.getHeaderView(0).setOnClickListener(naviItemListener);
         mFab = (FloatingActionButton) findViewById(R.id.fab);
         mFab.setOnClickListener(this);
 
@@ -79,19 +84,19 @@ public class MDMainActivity extends AppCompatActivity
         mDrawerToggle.setDrawerSlideAnimationEnabled(false);
         //调用这句才让图标显示出来
         mDrawerToggle.syncState();
+
+        showFragmentByReplace(createFragment(R.id.menu_item_drawer),true);
     }
 
     @Override
     public void onClickInOneClick(View v, int which) {
         switch (which) {
-            case 0:
+            case R.id.menu_item_drawer:
                 mRootDrawer.openDrawer(GravityCompat.START, true);
                 break;
-            case 1:
+            case R.id.menu_item_toolbar:
                 animateToolBar(true);
 //                animateToolBar(false);
-                break;
-            case 2:
                 break;
         }
     }
@@ -149,39 +154,30 @@ public class MDMainActivity extends AppCompatActivity
         }
     }
 
-    class FragAdapter extends FragmentStatePagerAdapter {
+    /*class FragAdapter extends FragmentStatePagerAdapter {
         public FragAdapter(FragmentManager fm) {
             super(fm);
         }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return Contents.TABS[position];
-        }
+        //配合TabLayout才使用
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            return Contents.TABS[position];
+//        }
 
         @Override
 
         public Fragment getItem(int position) {
-            Fragment frag = null;
-            switch (position) {
-                case 0:
-                case 1:
-                    frag = OneClickFragment.newInstance(position,
-                            Utils.randomAColor(RANDOM));
-                    break;
-                case 2:
-                    frag = RecyclerDataFragment.newInstance();
-                    break;
-            }
-            return frag;
+            return createFragment(position);
         }
 
         @Override
         public int getCount() {
             return Contents.TABS.length;
         }
-    }
+    }*/
 
+    //
     class DrawerLayoutListener implements DrawerLayout.DrawerListener {
 
         @Override
@@ -205,8 +201,70 @@ public class MDMainActivity extends AppCompatActivity
         }
     }
 
+    //侧滑抽屉点击事件
+    class NaviItemListener implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            showFragmentByReplace(createFragment(item.getItemId()),true);
+            //关闭drawer
+            mRootDrawer.closeDrawer(GravityCompat.START);
+            return true;
+        }
+
+        @Override
+        public void onClick(View v) {
+            //头部被点击
+            showToast("Head been hit");
+        }
+    }
+
+    private void showFragmentByReplace(Fragment fragment, boolean addToBackStack){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (mCurrentFragment != null) {
+            fragmentTransaction.remove(mCurrentFragment);
+            mCurrentFragment = null;
+        }
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.replace(R.id.content_container,fragment).commit();
+        mCurrentFragment = fragment;
+    }
+
+    private void showFragmentByAdd(Fragment fragment, boolean addToBackStack){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        if (mCurrentFragment != null) {
+            fragmentTransaction.remove(mCurrentFragment);
+            mCurrentFragment = null;
+        }
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.add(R.id.content_container,fragment).commit();
+        mCurrentFragment = fragment;
+    }
+
+    private Fragment createFragment(int itemId) {
+        Fragment frag = null;
+        switch (itemId) {
+            case R.id.menu_item_drawer:
+            case R.id.menu_item_toolbar:
+                frag = OneClickFragment.newInstance(itemId,
+                        Utils.randomAColor(RANDOM));
+                break;
+            case R.id.menu_item_cardview:
+                frag = CardViewShowFragment.newInstance(R.layout.layout_cardview);
+                break;
+            case R.id.menu_item_nestedscroll:
+                frag = RecyclerDataFragment.newInstance();
+                break;
+        }
+        return frag;
+    }
+
     @Override
-    public void onListFragmentInteraction(int clickIndex){
+    public void onListFragmentInteraction(int clickIndex) {
         Utils.showToast(this, Cheeses.NAMES[clickIndex]);
     }
 
@@ -214,8 +272,12 @@ public class MDMainActivity extends AppCompatActivity
     public void onBackPressed() {
         if (mRootDrawer.isDrawerOpen(GravityCompat.START)) {
             mRootDrawer.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
+    }
+
+    private void showToast(String s) {
+        Utils.showToast(MDMainActivity.this, s);
     }
 }

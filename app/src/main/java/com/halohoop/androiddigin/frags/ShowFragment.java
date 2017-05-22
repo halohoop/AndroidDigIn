@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 public class ShowFragment extends Fragment {
 
     private int mLayoutId = -1;
-    private final static String LAYOUT_ID_KEY = "layout_id_key";
+    protected final static String LAYOUT_ID_KEY = "layout_id_key";
 
     public ShowFragment() {
     }

@@ -15,25 +15,47 @@
   ~ limitations under the License.
   -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <item android:title="控件">
+        <menu>
+            <item
+                android:id="@+id/menu_item_drawer"
+                android:icon="@drawable/ic_build"
+                android:title="DrawerLayout" />
+            <item
+                android:id="@+id/menu_item_toolbar"
+                android:icon="@drawable/ic_build"
+                android:title="ToolBar" />
+            <item
+                android:id="@+id/menu_item_cardview"
+                android:icon="@drawable/ic_build"
+                android:title="CardView+Ripple Effect" />
+            <item
+                android:id="@+id/menu_item_nestedscroll"
+                android:icon="@drawable/ic_build"
+                android:title="Nested Scrolling above also NS" />
+        </menu>
+    </item>
+
+    <group
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_build"
-            android:title="Home" />
+            android:title="we have no group name" />
         <item
             android:id="@+id/nav_messages"
             android:icon="@drawable/ic_build"
-            android:title="Messages" />
+            android:title="we have no group name" />
     </group>
 
-    <item android:title="Sub items">
+    <item android:title="Group">
         <menu>
             <item
                 android:icon="@drawable/ic_build"
-                android:title="Sub item 1" />
+                android:title="we have group name" />
             <item
                 android:icon="@drawable/ic_build"
-                android:title="Sub item 2" />
+                android:title="we have group name" />
         </menu>
     </item>
 

@@ -87,7 +87,8 @@ public class Utils {
      */
 
     /**
-     * 从颜色得到另一个对比度高的颜色
+     * 从颜色得到另一个对比度高的颜色，其实就是给出黑白两种色，
+     * 不过传入的颜色如果较暗，那就是白色，如果较亮那就是黑色
      * @param color
      * @return
      */
@@ -126,5 +127,13 @@ public class Utils {
         return Color.rgb(d, d, d);
     }
 
+    public static int Dp2Px(Context context, float dp) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
+    }
 
+    public static int Px2Dp(Context context, float px) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (px / scale + 0.5f);
+    }
 }

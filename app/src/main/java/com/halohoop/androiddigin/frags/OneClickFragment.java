@@ -72,6 +72,16 @@ public class OneClickFragment extends Fragment {
         return inflate;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
     public interface ClickListener {
         void onClickInOneClick(View v, int which);
     }

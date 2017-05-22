@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.halohoop.androiddigin.MainActivity">
 
-    <!--这是一个没有使用的布局，没有时差效果的布局，对比activity_md_main_with_parallax.xml-->
-
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinar"
         android:layout_width="match_parent"
@@ -17,27 +15,38 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="256dp">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                android:layout_height="match_parent"
+                app:title="MD Demo from H"
+                app:contentScrim="#313131"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:tabTextAppearance="@style/TabLayoutTheme" />
+                <ImageView
+                    app:layout_collapseParallaxMultiplier="0.1"
+                    app:layout_collapseMode="parallax"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cyan_clo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.v7.widget.Toolbar
+                    app:layout_collapseMode="pin"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
 
-
         <!--放一个容器，可以用fragment加载进来，或者任何我们想要的布局 -->
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+        <FrameLayout
+            android:id="@+id/content_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
@@ -57,7 +66,7 @@
     <!--保证是最后一个，并且设置layout_gravity属性即可，左右适配需要start和end -->
     <android.support.design.widget.NavigationView
         android:id="@+id/navView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_view"
