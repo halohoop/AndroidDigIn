@@ -33,6 +33,10 @@
                 android:id="@+id/menu_item_nestedscroll"
                 android:icon="@drawable/ic_build"
                 android:title="Nested Scrolling above also NS" />
+            <item
+                android:id="@+id/menu_item_dialog"
+                android:icon="@drawable/ic_build"
+                android:title="Several Dialog" />
         </menu>
     </item>
 

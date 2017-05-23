@@ -51,6 +51,7 @@ public class MDMainActivity extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(versionCheck())finish();
 //        setContentView(R.layout.activity_md_main);
         setContentView(R.layout.activity_md_main_with_parallax);
         mRootDrawer = (DrawerLayout) findViewById(R.id.root_drawer);
@@ -85,7 +86,16 @@ public class MDMainActivity extends AppCompatActivity
         //调用这句才让图标显示出来
         mDrawerToggle.syncState();
 
-        showFragmentByReplace(createFragment(R.id.menu_item_drawer),true);
+        showFragmentByReplace(createFragment(R.id.menu_item_drawer),false);
+    }
+
+    private boolean versionCheck() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+        {
+            Utils.showToast(this,"Your phone must be LOLLIPOP or above!");
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -206,7 +216,7 @@ public class MDMainActivity extends AppCompatActivity
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            showFragmentByReplace(createFragment(item.getItemId()),true);
+            showFragmentByReplace(createFragment(item.getItemId()),false);
             //关闭drawer
             mRootDrawer.closeDrawer(GravityCompat.START);
             return true;

@@ -5,15 +5,18 @@
     android:id="@+id/root_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:openDrawer="start"
     tools:context="com.halohoop.androiddigin.MainActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinar"
         android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
         android:layout_height="match_parent">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBarLayout"
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:layout_height="256dp">
 
@@ -22,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:title="MD Demo from H"
-                app:contentScrim="#313131"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -30,10 +34,12 @@
                     app:layout_collapseParallaxMultiplier="0.1"
                     app:layout_collapseMode="parallax"
                     android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"
                     android:src="@drawable/cyan_clo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
+                <!--?attr/actionBarSize-->
                 <android.support.v7.widget.Toolbar
                     app:layout_collapseMode="pin"
                     android:id="@+id/toolbar"
