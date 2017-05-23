@@ -112,9 +112,24 @@
 #####
 	SharedPreferences defaultSp = PreferenceManager.getDefaultSharedPreferences(this);
 
-## 15.Material Design各种实例
+## 15.Material Design各种实例（不断更新）
 
-*
+**LOLLIPOP ONLY**
+
+![Demo pic](./material_design.gif)
+
+* 沉浸式状态栏（状态栏着色）；
+* DrawerLayout的使用；
+* NavigationView的使用；
+* CardView的使用；
+* CardView+Ripple效果；
+* Snackbar的使用；
+* FloatingActionButton的使用；
+* Toolbar替换ActionBar；
+* CoordinatorLayout+AppBarLayout+CollapsingToolbarLayout+Toolbar；
+
+	1. 解决CollapsingToolbarLayout和沉浸式状态栏的问题，[使 CollapsingToolbarLayout 与 StatusBar 完美共存。](http://tonyzzx.github.io/2015/09/08/CollapsingToolbarLayout-StatusBar/)
+
 
 ## 16.To be continued...
 
