@@ -131,7 +131,13 @@
 	1. 解决CollapsingToolbarLayout和沉浸式状态栏的问题，[使 CollapsingToolbarLayout 与 StatusBar 完美共存。](http://tonyzzx.github.io/2015/09/08/CollapsingToolbarLayout-StatusBar/)
 
 
-## 16.To be continued...
+## 16.TouchDelegate怎么用
+
+![Demo pic](./device-2017-05-28-215217.gif)
+
+* 当需要为一个很小的view扩大其点击区域的时候，可以用TouchDelegate! 
+
+## 17.To be continued...
 
 
 ## License

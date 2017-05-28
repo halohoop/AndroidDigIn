@@ -13,8 +13,8 @@ import com.halohoop.androiddigin.categoris.Contents;
 import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.MyDialogFragment;
 import com.halohoop.androiddigin.frags.MyPerferenceFragment;
-import com.halohoop.androiddigin.frags.RecyclerDataFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
+import com.halohoop.androiddigin.frags.TouchDelegateFragment;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.MenuUsageActivity;
@@ -81,6 +81,28 @@ public abstract class BaseAct extends AppCompatActivity
 
     final protected void showFragment(int resId) {
         ShowFragment showFragment = ShowFragment.newInstance(resId);
+        showFragment(showFragment, false);
+    }
+
+    final protected void showFragment(int resId, boolean replaceOrNot) {
+        ShowFragment showFragment = ShowFragment.newInstance(resId);
+        showFragment(showFragment, replaceOrNot);
+    }
+
+    final protected void showFragment(ShowFragment showFragment, boolean replaceOrNot) {
+        if (replaceOrNot) {
+            getSupportFragmentManager().beginTransaction()
+                    .addToBackStack(null)
+                    .replace(android.R.id.content, showFragment)
+                    .commit();
+        }else{
+            getSupportFragmentManager().beginTransaction()
+                    .addToBackStack(null)
+                    .add(android.R.id.content, showFragment)
+                    .commit();
+        }
+    }
+    final protected void showFragment(ShowFragment showFragment) {
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
                 .add(android.R.id.content, showFragment)
@@ -161,6 +183,10 @@ public abstract class BaseAct extends AppCompatActivity
                 break;
             case 14://Material Design
                 showActivity(MDMainActivity.class);
+                break;
+            case 15://TouchDelegate怎么使用
+                showFragment(TouchDelegateFragment.newInstance(R.layout.touch_delegate_layout),true);
+                Utils.showToast(this, "TouchDelegate怎么使用");
                 break;
         }
     }

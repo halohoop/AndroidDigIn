@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.halohoop.androiddigin.widgets.TouchDelegateViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/delegate_container"
+    android:background="#8e8e8e"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioButton
+        android:id="@+id/rtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="#ecbaba" />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="点击颜色区域也能触发RadioButton" />
+
+</com.halohoop.androiddigin.widgets.TouchDelegateViewGroup>
