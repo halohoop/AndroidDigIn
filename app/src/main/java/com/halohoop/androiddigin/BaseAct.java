@@ -14,6 +14,7 @@ import com.halohoop.androiddigin.frags.ListDataFragment;
 import com.halohoop.androiddigin.frags.MyDialogFragment;
 import com.halohoop.androiddigin.frags.MyPerferenceFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
+import com.halohoop.androiddigin.frags.ThreadChangeFragment;
 import com.halohoop.androiddigin.frags.TouchDelegateFragment;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
@@ -192,6 +193,10 @@ public abstract class BaseAct extends AppCompatActivity
             case 16://波浪，水涨起来
                 showFragment(R.layout.layout_wave);
                 Utils.showToast(this, "波浪，水涨起来");
+                break;
+            case 17://切换线程套路
+                showFragment(ThreadChangeFragment.newInstance(R.layout.layout_thread_exchange),true);
+                Utils.showToast(this, "在没有Activity没有Context的时候\n如何切换线程的套路");
                 break;
         }
     }
