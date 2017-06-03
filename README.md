@@ -145,7 +145,11 @@
 * 波浪两个周期重置才能无缝衔接； 
 * 建议将一个波浪的数据编程一个bean； 
 
-## 18.To be continued...
+## 18.如何在一个独立的类中如何拿到主线程
+
+    Handler handler = new Handler(Looper.getMainLooper());//线程切换
+
+## 19.To be continued...
 
 
 ## License
