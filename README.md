@@ -137,7 +137,15 @@
 
 * 当需要为一个很小的view扩大其点击区域的时候，可以用TouchDelegate! 
 
-## 17.To be continued...
+## 17.波浪，水涨起来效果 Path.rQuadTo
+
+![Demo pic](./device-2017-06-03-183409.gif)
+
+* WaveView.java； 
+* 波浪两个周期重置才能无缝衔接； 
+* 建议将一个波浪的数据编程一个bean； 
+
+## 18.To be continued...
 
 
 ## License
