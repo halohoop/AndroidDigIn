@@ -188,6 +188,10 @@ public abstract class BaseAct extends AppCompatActivity
                 showFragment(TouchDelegateFragment.newInstance(R.layout.touch_delegate_layout),true);
                 Utils.showToast(this, "TouchDelegate怎么使用");
                 break;
+            case 16://波浪，水涨起来
+                showFragment(R.layout.layout_wave);
+                Utils.showToast(this, "波浪，水涨起来");
+                break;
         }
     }
 
