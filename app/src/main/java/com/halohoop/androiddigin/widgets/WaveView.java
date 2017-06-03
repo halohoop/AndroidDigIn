@@ -100,7 +100,7 @@ public class WaveView extends View {
         canvas.drawPath(wavePath, paint);
 
         {
-            deltaX+=10;
+            deltaX+=30;
             if (deltaX > 2*singleWaveWidth) {//移动了两个周期才能重置，
                 deltaX = deltaX_fix;
             }
@@ -109,8 +109,8 @@ public class WaveView extends View {
             } else if (deltaY < 0 && yReverse != false) {
                 yReverse = false;
             }
-            if (yReverse) deltaY--;
-            else deltaY++;
+            if (yReverse) deltaY-=3;
+            else deltaY+=3;
         }
         invalidate();
 //        postInvalidateDelayed(16);

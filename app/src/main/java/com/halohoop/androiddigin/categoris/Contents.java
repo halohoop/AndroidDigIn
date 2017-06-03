@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Pooholah on 2017/5/17.
+ * 这些数据需要换成数据库存储
  */
 
 public class Contents {

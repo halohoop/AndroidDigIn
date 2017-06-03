@@ -26,6 +26,7 @@ import com.halohoop.androiddigin.utils.Utils;
 
 /**
  * Created by Pooholah on 2017/5/17.
+ * 这个类需要热更新替换
  */
 
 public abstract class BaseAct extends AppCompatActivity
