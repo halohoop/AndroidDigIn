@@ -37,13 +37,6 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/material_design"
             android:theme="@style/MDAppTheme"></activity>
-        <activity android:name=".KotlinMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
