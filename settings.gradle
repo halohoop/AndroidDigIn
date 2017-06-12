@@ -1,1 +1,1 @@
-include ':app', ':ImmersiveMode'
+include ':app', ':ImmersiveMode', ':volley'

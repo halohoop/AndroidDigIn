@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidDigIn.iml" filepath="$PROJECT_DIR$/AndroidDigIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImmersiveMode/ImmersiveMode.iml" filepath="$PROJECT_DIR$/ImmersiveMode/ImmersiveMode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flowerfloat/flowerfloat.iml" filepath="$PROJECT_DIR$/flowerfloat/flowerfloat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
     </modules>
   </component>
 </project>
