@@ -198,6 +198,10 @@ public abstract class BaseAct extends AppCompatActivity
                 showFragment(ThreadChangeFragment.newInstance(R.layout.layout_thread_exchange),true);
                 Utils.showToast(this, "在没有Activity没有Context的时候\n如何切换线程的套路");
                 break;
+            case 18://VelocityTracker的使用
+                showFragment(R.layout.fragment_velocitytracker);
+                Utils.showToast(this, "VelocityTracker的使用");
+                break;
         }
     }
 

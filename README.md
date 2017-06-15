@@ -149,7 +149,14 @@
 
     Handler handler = new Handler(Looper.getMainLooper());//线程切换
 
-## 19.To be continued...
+## 19.VelocityTracker的使用
+
+* 通过onTouchEvent获取速度，x轴方向和Y轴方向；
+* 每个手机都有最大的fling速度，设计自定义view的时候，如果超过了可能会让CPU忙不过来，所以通过设置获取一下：
+
+        int mMaxVelocity = ViewConfiguration.get(getContext()).getMaximumFlingVelocity();
+
+## 20.To be continued...
 
 
 ## License
