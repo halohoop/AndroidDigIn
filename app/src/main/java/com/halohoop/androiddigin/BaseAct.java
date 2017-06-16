@@ -18,6 +18,7 @@ import com.halohoop.androiddigin.frags.ThreadChangeFragment;
 import com.halohoop.androiddigin.frags.TouchDelegateFragment;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
+import com.halohoop.androiddigin.showacts.FragmentPopStackActivity;
 import com.halohoop.androiddigin.showacts.MenuUsageActivity;
 import com.halohoop.androiddigin.showacts.RadialGradientActivity;
 import com.halohoop.androiddigin.showacts.RevealActivity;
@@ -202,6 +203,8 @@ public abstract class BaseAct extends AppCompatActivity
                 showFragment(R.layout.fragment_velocitytracker);
                 Utils.showToast(this, "VelocityTracker的使用");
                 break;
+            case 19://FragmentPopStackActivity
+                showActivity(FragmentPopStackActivity.class);
         }
     }
 

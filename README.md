@@ -156,7 +156,24 @@
 
         int mMaxVelocity = ViewConfiguration.get(getContext()).getMaximumFlingVelocity();
 
-## 20.To be continued...
+## 20.FragmentManager的popBackStack的使用
+
+* 用法：
+
+        //自己以上所有，不包括自己
+        getSupportFragmentManager().popBackStack("rt", 0);
+        //自己以上所有，包括自己
+        getSupportFragmentManager().popBackStack("rt", 1);
+        //最上层的一个
+        getSupportFragmentManager().popBackStack(null, 0);
+        //最上层的一个
+        getSupportFragmentManager().popBackStack();
+        //全部pop
+        getSupportFragmentManager().popBackStack(null, 1);
+
+* 注意：popBackStack传入的第一个参数是addToBackStack(name)传入的参数，而不是Fragment的Tag；
+
+## 21.To be continued...
 
 
 ## License

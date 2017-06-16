@@ -10,4 +10,5 @@
     <string name="sp_password_key">password</string>
     <string name="toggle_open">Open</string>
     <string name="toggle_close">Close</string>
+    <string name="title_activity_fragment_popstack_usage">FragmentPopStackActivity</string>
 </resources>

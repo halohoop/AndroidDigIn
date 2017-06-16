@@ -37,6 +37,10 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/material_design"
             android:theme="@style/MDAppTheme"></activity>
+        <activity
+            android:name=".showacts.FragmentPopStackActivity"
+            android:label="@string/title_activity_fragment_popstack_usage"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
