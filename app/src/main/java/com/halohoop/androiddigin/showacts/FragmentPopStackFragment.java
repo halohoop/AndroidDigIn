@@ -44,10 +44,18 @@ public class FragmentPopStackFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "FragmentPopStackFragment: onPause:"+getTag());
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         Log.i(TAG, "FragmentPopStackFragment: onDetach:"+getTag());
     }
+
+
 
     private static final String TAG = "FragmentPopStackFragmen";
 
