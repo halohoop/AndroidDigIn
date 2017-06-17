@@ -82,7 +82,7 @@ public class MDMainActivity extends AppCompatActivity
         //设置第二个
         mRootDrawer.addDrawerListener(new DrawerLayoutListener());
         //因为被拖出来的drawer遮住了，所以禁用动画
-        mDrawerToggle.setDrawerSlideAnimationEnabled(false);
+//        mDrawerToggle.setDrawerSlideAnimationEnabled(false);
         //调用这句才让图标显示出来
         mDrawerToggle.syncState();
 

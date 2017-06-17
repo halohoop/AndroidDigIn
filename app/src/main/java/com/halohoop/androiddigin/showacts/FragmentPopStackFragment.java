@@ -1,13 +1,12 @@
 package com.halohoop.androiddigin.showacts;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.halohoop.androiddigin.R;
@@ -52,8 +51,8 @@ public class FragmentPopStackFragment extends Fragment {
 
     private static final String TAG = "FragmentPopStackFragmen";
 
-    @Override
-    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        return super.onCreateAnimation(transit, enter, nextAnim);
-    }
+//    @Override
+//    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+//        return super.onCreateAnimation(transit, enter, nextAnim);
+//    }
 }
