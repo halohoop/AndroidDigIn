@@ -9,7 +9,7 @@
         android:layout_height="200dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="只有我可以滑动" />
+        android:text="我可以被拖动" />
 
     <TextView
         android:id="@+id/tv1"
@@ -19,6 +19,6 @@
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="我不可以滑动" />
+        android:text="从ViewGroup边缘开始滑动可以把我拖动" />
 
 </com.halohoop.androiddigin.widgets.DragViewGroup>

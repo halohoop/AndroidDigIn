@@ -23,6 +23,7 @@ public class DragViewGroup extends RelativeLayout {
     public DragViewGroup(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         viewDragHelper = ViewDragHelper.create(this, new CallBack());
+        viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
     }
 
     private ViewGroup findContentLayout(ViewGroup parent) {
@@ -69,6 +70,12 @@ public class DragViewGroup extends RelativeLayout {
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
             return top;
+        }
+
+        @Override
+        public void onEdgeDragStarted(int edgeFlags, int pointerId) {
+            super.onEdgeDragStarted(edgeFlags, pointerId);
+            viewDragHelper.captureChildView(childAt1,pointerId);
         }
     }
 
