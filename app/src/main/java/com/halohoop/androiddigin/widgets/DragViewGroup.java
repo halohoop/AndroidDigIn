@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class DragViewGroup extends RelativeLayout {
     public DragViewGroup(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         viewDragHelper = ViewDragHelper.create(this, new CallBack());
-        viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
+        viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
 
     private ViewGroup findContentLayout(ViewGroup parent) {
@@ -75,8 +76,23 @@ public class DragViewGroup extends RelativeLayout {
         @Override
         public void onEdgeDragStarted(int edgeFlags, int pointerId) {
             super.onEdgeDragStarted(edgeFlags, pointerId);
-            viewDragHelper.captureChildView(childAt1,pointerId);
+            Log.i(TAG, "onEdgeDragStarted: " + edgeFlags);
+            viewDragHelper.captureChildView(childAt1, pointerId);
+        }
+
+        @Override
+        public void onEdgeTouched(int edgeFlags, int pointerId) {
+            super.onEdgeTouched(edgeFlags, pointerId);
+            Log.i(TAG, "onEdgeTouched: " + edgeFlags);
+        }
+
+        @Override
+        public boolean onEdgeLock(int edgeFlags) {
+            Log.i(TAG, "onEdgeLock: " + edgeFlags);
+            return (edgeFlags&ViewDragHelper.EDGE_LEFT)==ViewDragHelper.EDGE_LEFT;
         }
     }
+
+    private static final String TAG = "DragViewGroup";
 
 }

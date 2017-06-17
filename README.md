@@ -173,7 +173,34 @@
 
 * 注意：popBackStack传入的第一个参数是addToBackStack(name)传入的参数，而不是Fragment的Tag；
 
-## 21.To be continued...
+## 21.ViewDragHelper如何使用
+
+* 实例：可以在构造方法做
+
+        viewDragHelper = ViewDragHelper.create(this, new CallBack());
+
+* 设置是否边缘滑动：
+
+        viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
+
+* 如果需要子view边缘滑动的支持，重写：
+
+        @Override
+        public void onEdgeDragStarted(int edgeFlags, int pointerId) {
+            super.onEdgeDragStarted(edgeFlags, pointerId);
+            Log.i(TAG, "onEdgeDragStarted: " + edgeFlags);
+            viewDragHelper.captureChildView(childAt1, pointerId);
+        }
+
+* 锁定边缘要重写：
+
+        @Override
+        public boolean onEdgeLock(int edgeFlags) {
+            Log.i(TAG, "onEdgeLock: " + edgeFlags);
+            return (edgeFlags&ViewDragHelper.EDGE_LEFT)==ViewDragHelper.EDGE_LEFT;
+        }
+
+## 22.To be continued...
 
 
 ## License
