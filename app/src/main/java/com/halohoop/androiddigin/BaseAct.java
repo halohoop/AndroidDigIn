@@ -16,6 +16,7 @@ import com.halohoop.androiddigin.frags.MyPerferenceFragment;
 import com.halohoop.androiddigin.frags.ShowFragment;
 import com.halohoop.androiddigin.frags.ThreadChangeFragment;
 import com.halohoop.androiddigin.frags.TouchDelegateFragment;
+import com.halohoop.androiddigin.frags.VpTransformerFragment;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.FragmentPopStackActivity;
@@ -205,6 +206,10 @@ public abstract class BaseAct extends AppCompatActivity
                 break;
             case 19://FragmentPopStackActivity
                 showActivity(FragmentPopStackActivity.class);
+                Utils.showToast(this, "FragmentPopStack的使用");
+            case 20://VpTransformer
+                showFragment(VpTransformerFragment.newInstance(), true);
+                Utils.showToast(this, "VpTransformer的使用");
         }
     }
 

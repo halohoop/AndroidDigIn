@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl"
+    android:background="#3FB8D6"
+     >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher" />
+
+   
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="14dp" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在逼一个"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_top"
+        android:layout_centerHorizontal="true"
+        android:text="最爱你的人即兴表演"
+        android:textColor="#fff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <ImageView
+         android:id="@+id/imageView3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/imageView1"
+         android:layout_alignParentLeft="true"
+         android:layout_marginBottom="18dp"
+         android:layout_marginLeft="29dp"
+         android:src="@mipmap/ic_launcher" />
+
+     <ImageView
+         android:id="@+id/imageView4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/imageView1"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="27dp"
+         android:src="@mipmap/ic_launcher" />
+
+     <ImageView
+         android:id="@+id/imageView5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerVertical="true"
+         android:layout_toLeftOf="@+id/ll_top"
+         android:src="@mipmap/ic_launcher_round" />
+
+     <ImageView
+         android:id="@+id/imageView6"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/imageView5"
+         android:layout_toRightOf="@+id/textView1"
+         android:src="@mipmap/ic_launcher" />
+
+     <ImageView
+         android:id="@+id/imageView7"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/imageView3"
+         android:layout_below="@+id/imageView1"
+         android:layout_marginTop="19dp"
+         android:src="@mipmap/ic_launcher_round" />
+
+     <ImageView
+         android:id="@+id/imageView8"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignRight="@+id/imageView4"
+         android:layout_below="@+id/imageView1"
+         android:src="@mipmap/ic_launcher" />
+   
+</RelativeLayout>
