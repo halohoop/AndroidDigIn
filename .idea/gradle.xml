@@ -5,12 +5,14 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:/WorkInstall/gradle-2.2.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/ImmersiveMode" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/flowerfloat" />
+            <option value="$PROJECT_DIR$/tableview" />
+            <option value="$PROJECT_DIR$/viewpagertransdemo" />
             <option value="$PROJECT_DIR$/volley" />
           </set>
         </option>

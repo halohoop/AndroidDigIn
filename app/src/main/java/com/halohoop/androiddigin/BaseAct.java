@@ -131,6 +131,10 @@ public abstract class BaseAct extends AppCompatActivity
         way2(itemBean);
     }
 
+    /**
+     * 他妈的这个方法抽象依赖具体，真烂，后期重构
+     * @param itemBean
+     */
     private void way2(Contents.ItemBean itemBean) {
         Intent intent;
         switch (itemBean.getIndex()) {
@@ -210,6 +214,10 @@ public abstract class BaseAct extends AppCompatActivity
             case 20://VpTransformer
                 showFragment(VpTransformerFragment.newInstance(), true);
                 Utils.showToast(this, "VpTransformer的使用");
+            case 21://高效渲染波浪
+                showFragment(R.layout.layout_surface_wave);
+                Utils.showToast(this, "高效渲染波浪");
+                break;
         }
     }
 

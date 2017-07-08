@@ -1,6 +1,16 @@
 # Halohoop Android Skill Dig In
 
-## 23.To be continued...
+## 24.To be continued...
+
+## 23.SurfaceView高效渲染波浪
+
+![Demo pic](./pics/device-2017-07-08-145619.gif)
+
+* **往surface的Canvas上绘制是不需要在主线程的,这是优化的关键。**
+
+* 使用SurfaceView绘制之后，比较优化的性能：
+
+![Demo pic](./pics/24demo0.png)
 
 ## 22.ViewPager滑动特效
 

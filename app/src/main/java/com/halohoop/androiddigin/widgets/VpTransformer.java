@@ -18,28 +18,28 @@ public class VpTransformer implements ViewPager.PageTransformer {
                 View childView = v.getChildAt(i);
                 childView.setTranslationX(v.getWidth() * (-position));
             }
-        }else if(position <= 1 && position >= 0){
-			ViewGroup v = (ViewGroup) page;
-			int childCount = v.getChildCount();
-			for (int i = 0; i < childCount; i++) {
-				View childView = v.getChildAt(i);
-				childView.setPivotX(childView.getWidth()>>1);
-				childView.setPivotY(childView.getHeight() >> 1);
-				float fraction = 0;
-				if (position <= 0) {
-					fraction = (0 - position) / 1f;
-				} else if (position > 0) {
-					fraction = (1 - position) / 1f;
-				}
-				childView.setRotation(360 * (1 - fraction));
-                float factor = (float) Math.random()*3;
-                if(childView.getTag()==null){
+        } else if (position <= 1 && position >= 0) {
+            ViewGroup v = (ViewGroup) page;
+            int childCount = v.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childView = v.getChildAt(i);
+                childView.setPivotX(childView.getWidth() >> 1);
+                childView.setPivotY(childView.getHeight() >> 1);
+                float fraction = 0;
+                if (position <= 0) {
+                    fraction = (0 - position) / 1f;
+                } else if (position > 0) {
+                    fraction = (1 - position) / 1f;
+                }
+                childView.setRotation(360 * (1 - fraction));
+                float factor = (float) Math.random() * 3;
+                if (childView.getTag() == null) {
                     childView.setTag(factor);
-                }else{
+                } else {
                     factor = (float) childView.getTag();
                 }
-                childView.setTranslationX(factor*childView.getWidth()*(+position));
-			}
+                childView.setTranslationX(factor * childView.getWidth() * (+position));
+            }
         }
 
     }

@@ -18,7 +18,7 @@ public class Contents {
             "ListFragment怎么用", "FragmentStatePagerAdapter怎么用", "DialogFragment怎么用",
             "PreferenceFragment怎么用", "ViewDragHelper的使用", "Material Design各种实例",
             "TouchDelegate怎么使用","波浪，水涨起来","切换线程套路","VelocityTracker的使用",
-            "FragmentManager.popBackStack的使用", "ViewPager滑动特效",
+            "FragmentManager.popBackStack的使用", "ViewPager滑动特效", "高效渲染波浪",
     };
     //0--效果，特效
     //1--逻辑模板代码 套路
@@ -30,6 +30,7 @@ public class Contents {
             1, 1, 2,
             1, 0, 1,
             1, 1, 0,
+            0,
     };
     public static int CATEGORIS_COUNT = 3;
 
@@ -42,6 +43,7 @@ public class Contents {
             1, 0, 0,
             0, 0, 0,
             0, 0, 0,
+            0,
     };
     public static int LIST_ITEM_TYPE_COUNT = 2;
 
