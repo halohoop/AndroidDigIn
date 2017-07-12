@@ -11,9 +11,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/flowerfloat" />
+            <option value="$PROJECT_DIR$/prac" />
             <option value="$PROJECT_DIR$/tableview" />
             <option value="$PROJECT_DIR$/viewpagertransdemo" />
-            <option value="$PROJECT_DIR$/volley" />
+            <option value="$PROJECT_DIR$/wavefloatview-lib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

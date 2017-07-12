@@ -5,9 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidDigIn.iml" filepath="$PROJECT_DIR$/AndroidDigIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/flowerfloat/flowerfloat.iml" filepath="$PROJECT_DIR$/flowerfloat/flowerfloat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prac/prac.iml" filepath="$PROJECT_DIR$/prac/prac.iml" />
       <module fileurl="file://$PROJECT_DIR$/tableview/tableview.iml" filepath="$PROJECT_DIR$/tableview/tableview.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewpagertransdemo/viewpagertransdemo.iml" filepath="$PROJECT_DIR$/viewpagertransdemo/viewpagertransdemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wavefloatview-lib/wavefloatview-lib.iml" filepath="$PROJECT_DIR$/wavefloatview-lib/wavefloatview-lib.iml" />
     </modules>
   </component>
 </project>

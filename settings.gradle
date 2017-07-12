@@ -1,1 +1,1 @@
-include ':app', ':ImmersiveMode', ':volley'
+include ':app', ':flowerfloat', ':tableview', ':viewpagertransdemo', ':prac', ':wavefloatview-lib'

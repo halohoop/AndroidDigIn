@@ -17,6 +17,7 @@ import com.halohoop.androiddigin.frags.ShowFragment;
 import com.halohoop.androiddigin.frags.ThreadChangeFragment;
 import com.halohoop.androiddigin.frags.TouchDelegateFragment;
 import com.halohoop.androiddigin.frags.VpTransformerFragment;
+import com.halohoop.androiddigin.frags.WaveWithTextsFragmentKt;
 import com.halohoop.androiddigin.materialdesign.MDMainActivity;
 import com.halohoop.androiddigin.showacts.ColorMatrixActivity;
 import com.halohoop.androiddigin.showacts.FragmentPopStackActivity;
@@ -216,6 +217,10 @@ public abstract class BaseAct extends AppCompatActivity
                 Utils.showToast(this, "VpTransformer的使用");
             case 21://高效渲染波浪
                 showFragment(R.layout.layout_surface_wave);
+                Utils.showToast(this, "高效渲染波浪");
+                break;
+            case 22://带文字的波浪
+                showFragment(WaveWithTextsFragmentKt.newInstance(R.layout.fragment_wave_texts),true);
                 Utils.showToast(this, "高效渲染波浪");
                 break;
         }

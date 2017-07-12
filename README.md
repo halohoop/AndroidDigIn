@@ -1,6 +1,48 @@
 # Halohoop Android Skill Dig In
 
-## 24.To be continued...
+## 25.To be continued...
+
+## 24.带文字的波浪
+
+![Demo pic](./pics/device-2017-07-13-004908.gif)
+
+* kotlin实现的BaseSurfaceView高效会绘制模板;
+
+* kotlin实现的自定义控件;
+
+* Kotlin声明顺序问题的坑;
+
+* Kotlin构造函数重载;
+
+* Kotlin伴生 与 Java Static;
+
+* Kotlin 与 Java 互操;
+
+* Region + Path的使用;
+
+* Kotlin函数中定义函数;
+
+* Kotlin加锁代码的方便之处;
+
+        fun <T> lock(lock: Lock, body: () -> T) {
+            lock.lock()
+            try {
+                body()
+            }
+            finally {
+                lock.unlock()
+            }
+        }
+
+    * 使用
+    
+            val lockObj = ReentrantLock()
+            ...
+            lock(lockObj,{
+                //thread blcoks
+            })
+
+* *Kotlin单元测试..还未添加*
 
 ## 23.SurfaceView高效渲染波浪
 
