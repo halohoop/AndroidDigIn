@@ -1,1 +1,3 @@
-include ':app', ':flowerfloat', ':tableview', ':viewpagertransdemo', ':prac', ':wavefloatview-lib'
+include ':app', ':flowerfloat', ':tableview', ':viewpagertransdemo', ':prac', ':wavefloatview-lib', ':halojbox2d-lib'
+
+

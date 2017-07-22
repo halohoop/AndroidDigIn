@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl"
+    android:background="#FD7570"
+     >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/new_graph_flower4" />
+
+   
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="14dp" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_icon_flower" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美一下"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_top"
+        android:layout_centerHorizontal="true"
+        android:text="找到好应用,别忘了去“美一下”"
+        android:textColor="#fff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <ImageView
+         android:id="@+id/imageView3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/imageView1"
+         android:layout_alignParentLeft="true"
+         android:layout_marginBottom="18dp"
+         android:layout_marginLeft="29dp"
+         android:src="@drawable/new_graph_flower1" />
+
+     <ImageView
+         android:id="@+id/imageView6"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/imageView5"
+         android:layout_toRightOf="@+id/textView1"
+         android:src="@drawable/new_graph_flower10" />
+
+     <ImageView
+         android:id="@+id/imageView8"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/imageView4"
+         android:layout_below="@+id/imageView6"
+         android:src="@drawable/new_graph_flower7" />
+
+     <ImageView
+         android:id="@+id/imageView5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_centerVertical="true"
+         android:src="@drawable/new_graph_flower8" />
+
+     <ImageView
+         android:id="@+id/imageView7"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/imageView5"
+         android:layout_toLeftOf="@+id/ll_top"
+         android:src="@drawable/new_graph_flower2" />
+
+     <ImageView
+         android:id="@+id/imageView4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/imageView6"
+         android:layout_alignRight="@+id/textView1"
+         android:layout_marginRight="26dp"
+         android:src="@drawable/new_graph_flower10" />
+
+     <ImageView
+         android:id="@+id/imageView9"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/imageView3"
+         android:layout_toRightOf="@+id/ll_top"
+         android:src="@drawable/new_graph_flower5" />
+
+     <ImageView
+         android:id="@+id/imageView10"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/imageView7"
+         android:layout_marginRight="18dp"
+         android:layout_toLeftOf="@+id/imageView8"
+         android:src="@drawable/new_graph_flower9" />
+
+     <ImageView
+         android:id="@+id/imageView11"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/imageView7"
+         android:layout_alignLeft="@+id/ll_top"
+         android:src="@drawable/new_graph_flower8" />
+
+<!--      <Button -->
+<!--          android:id="@+id/button1" -->
+<!--          android:layout_width="wrap_content" -->
+<!--          android:layout_height="wrap_content" -->
+<!--          android:layout_alignParentBottom="true" -->
+<!--          android:layout_marginBottom="30dp" -->
+<!--          android:layout_centerHorizontal="true" -->
+<!--          android:background="@drawable/umeng_fb_button1_white_normal" -->
+<!--          android:layout_below="@+id/imageView10" -->
+<!--          android:text="马上体验" -->
+<!--          android:textSize="30dp" -->
+<!--          android:margin="20dp" -->
+<!--          android:textColor="#FD7570" /> -->
+   
+</RelativeLayout>
